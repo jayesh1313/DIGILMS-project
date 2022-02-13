@@ -23,6 +23,7 @@ function App() {
           <Route element={<Main />} path="main">
             <Route element={<Signup />} path="signup" />
           </Route>
+         
           {/* <Route element={<user />} path="user">
             <Route element={<dashboard />} path="dashboard" />
           </Route>

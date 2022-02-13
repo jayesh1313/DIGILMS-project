@@ -1,95 +1,59 @@
-import React from 'react';
-import '../../stylesheet/header.css'
+import React from 'react'
 
 export const header = () => {
-    function test(){
-        var tabsNewAnim = $('#navbarSupportedContent');
-        var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
-        var activeItemNewAnim = tabsNewAnim.find('.active');
-        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-        var itemPosNewAnimTop = activeItemNewAnim.position();
-        var itemPosNewAnimLeft = activeItemNewAnim.position();
-        $(".hori-selector").css({
-            "top":itemPosNewAnimTop.top + "px", 
-            "left":itemPosNewAnimLeft.left + "px",
-            "height": activeWidthNewAnimHeight + "px",
-            "width": activeWidthNewAnimWidth + "px"
-        });
-        $("#navbarSupportedContent").on("click","li",function(e){
-            $('#navbarSupportedContent ul li').removeClass("active");
-            $(this).addClass('active');
-            var activeWidthNewAnimHeight = $(this).innerHeight();
-            var activeWidthNewAnimWidth = $(this).innerWidth();
-            var itemPosNewAnimTop = $(this).position();
-            var itemPosNewAnimLeft = $(this).position();
-            $(".hori-selector").css({
-                "top":itemPosNewAnimTop.top + "px", 
-                "left":itemPosNewAnimLeft.left + "px",
-                "height": activeWidthNewAnimHeight + "px",
-                "width": activeWidthNewAnimWidth + "px"
-            });
-        });
-    }
-    $(document).ready(function(){
-        setTimeout(function(){ test(); });
-    });
-    $(window).on('resize', function(){
-        setTimeout(function(){ test(); }, 500);
-    });
-    $(".navbar-toggler").click(function(){
-        $(".navbar-collapse").slideToggle(300);
-        setTimeout(function(){ test(); });
-    });
-    
-    
-    
-    // --------------add active class-on another-page move----------
-    jQuery(document).ready(function($){
-        // Get current path and find target link
-        var path = window.location.pathname.split("/").pop();
-    
-        // Account for home page with empty path
-        if ( path == '' ) {
-            path = 'index.html';
-        }
-    
-        var target = $('#navbarSupportedContent ul li a[href="'+path+'"]');
-        // Add active class to target link
-        target.parent().addClass('active');
-    });
-    
-    
-    
-  return <div>
-      <nav className="navbar navbar-expand-custom navbar-mainbg">
-        <a className="navbar-brand navbar-logo" href="#">Navbar</a>
-        <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i className="fas fa-bars text-white"></i>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto">
-                <div className="hori-selector"><div className="left"></div><div className="right"></div></div>
-                <li className="nav-item">
-                    <a className="nav-link" href="javascript:void(0);"><i className="fas fa-tachometer-alt"></i>Dashboard</a>
-                </li>
-                <li className="nav-item active">
-                    <a className="nav-link" href="javascript:void(0);"><i className="far fa-address-book"></i>Address Book</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="javascript:void(0);"><i className="far fa-clone"></i>Components</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="javascript:void(0);"><i className="far fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="javascript:void(0);"><i className="far fa-chart-bar"></i>Charts</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="javascript:void(0);"><i className="far fa-copy"></i>Documents</a>
-                </li>
+  return (
+    <div><div class="body-wrap">
+    <div class="container">
+      <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+          </div>
+  
+          
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
             </ul>
+  
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          
         </div>
-    </nav>
-  </div>;
-};
+        
+      </nav>
+    </div>
+  </div></div>
+  )
+}
