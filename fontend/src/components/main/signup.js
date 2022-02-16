@@ -22,6 +22,14 @@ export default function signup() {
       <input type="password" name="" required=""/>
       <label>Re-Password</label>
     </div>
+    <div class="user-box">
+      <input type="password" name="" required=""/>
+      <label>Contact Number</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="" required=""/>
+      <label>Re-Password</label>
+    </div>
     <a href="#">
       <span></span>
       <span></span>

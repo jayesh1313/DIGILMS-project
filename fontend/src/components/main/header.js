@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../stylesheet/header.css'
 export const header = () => {
   return (
     <div><div class="body-wrap">

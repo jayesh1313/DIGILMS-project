@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/main";
 import Home from "./components/main/Home";
 import Login from "./components/main/Login";
-import footer from "./components/main/footer";
+
 
 import  Signup  from "./components/main/signup";
 import { dashboard } from "./components/user/dashboard";
@@ -11,7 +11,7 @@ import { dashboard } from "./components/user/dashboard";
 function App() {
   return (
     <div>
-      <header></header>
+      
       <BrowserRouter>
         <Routes>
         <Route element={<Main />} path="main">
@@ -43,7 +43,7 @@ function App() {
             <Route element={<footer />} path="footer" />
           </Route> */}
         </Routes>
-<footer></footer>
+
       </BrowserRouter>
     </div>
   );
