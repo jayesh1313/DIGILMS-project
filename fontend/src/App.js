@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/main";
 import Home from "./components/main/Home";
 import Login from "./components/main/Login";
-
+import Trainer from "./components/trainer";
 
 import  Signup  from "./components/main/signup";
 import { dashboard } from "./components/user/dashboard";
+import Register from "./components/trainer/Register";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           </Route>
           <Route element={<Main />} path="main">
             <Route element={<Signup />} path="signup" />
+          </Route>
+
+          <Route element={<Trainer />} path="trainer">
+            <Route element={<Register />} path="Register" />
           </Route>
          
           {/* <Route element={<user />} path="user">
