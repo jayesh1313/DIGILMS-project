@@ -20,7 +20,8 @@ const Header = () => {
   </div>
   
   <div class="nav-links">
-    <Link href="" target="_blank" to="/main/login">Login</Link>
+    <Link href="" target="_blank" to="/main/login">Login as Student</Link>
+    <Link href="" target="_blank" to="/trainer/login">Login as Trainer</Link>
     <Link href="" target="_blank" to="/main/signup">Register as Student</Link>
     <Link href="" target="_blank" to="/trainer/Register">Register as Trainer</Link>
     {/* <a href="https://codepen.io/jo_Geek/" target="_blank">Codepen</a>
