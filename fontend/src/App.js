@@ -28,9 +28,7 @@ function App() {
 
           <Route element={<Trainer />} path="trainer">
             <Route element={<Register />} path="Register" />
-          </Route>
-          <Route element={<Trainer />} path="trainer">
-            <Route element={<Trainerlogin />} path="Trainerlogin" />
+            <Route element={<Trainerlogin />} path="login" />
           </Route>
          
           {/* <Route element={<user />} path="user">
