@@ -8,6 +8,7 @@ import Trainer from "./components/trainer";
 import  Signup  from "./components/main/signup";
 import { dashboard } from "./components/user/dashboard";
 import Register from "./components/trainer/Register";
+import Trainerlogin from "./components/trainer/Trainerlogin";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
 
           <Route element={<Trainer />} path="trainer">
             <Route element={<Register />} path="Register" />
+          </Route>
+          <Route element={<Trainer />} path="trainer">
+            <Route element={<Trainerlogin />} path="Trainerlogin" />
           </Route>
          
           {/* <Route element={<user />} path="user">
