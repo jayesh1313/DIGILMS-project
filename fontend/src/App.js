@@ -9,6 +9,7 @@ import  Signup  from "./components/main/signup";
 import { dashboard } from "./components/user/dashboard";
 import Register from "./components/trainer/Register";
 import Trainerlogin from "./components/trainer/Trainerlogin";
+import BrowseCourse from "./components/main/Browsecourse";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
         <Route element={<Main />} path="main">
             <Route element={<Home />} path="home" />
+            <Route element={<BrowseCourse />} path="browsecourse" />
           </Route>
           <Route element={<Main />} path="main">
             <Route element={<Login />} path="Login" />

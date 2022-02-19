@@ -20,10 +20,11 @@ const Header = () => {
   </div>
   
   <div class="nav-links">
-    <Link href="" target="_blank" to="/main/login">Login as Student</Link>
-    <Link href="" target="_blank" to="/trainer/login">Login as Trainer</Link>
-    <Link href="" target="_blank" to="/main/signup">Register as Student</Link>
-    <Link href="" target="_blank" to="/trainer/Register">Register as Trainer</Link>
+    <Link to="/main/login">Login as Student</Link>
+    <Link to="/trainer/login">Login as Trainer</Link>
+    <Link to="/main/signup">Register as Student</Link>
+    <Link to="/trainer/Register">Register as Trainer</Link>
+    <Link to="/main/browsecourse">Get Started</Link>
     {/* <a href="https://codepen.io/jo_Geek/" target="_blank">Codepen</a>
     <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">JsFiddle</a> */}
   </div>
