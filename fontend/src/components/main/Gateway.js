@@ -1,92 +1,9 @@
 import React from 'react'
 
-export default function Gateway() {
-    new Vue({
-        el: "#app",
-        data() {
-          return {
-            currentCardBackground: Math.floor(Math.random()* 25 + 1), // just for fun :D
-            cardName: "",
-            cardNumber: "",
-            cardMonth: "",
-            cardYear: "",
-            cardCvv: "",
-            minCardYear: new Date().getFullYear(),
-            amexCardMask: "#### ###### #####",
-            otherCardMask: "#### #### #### ####",
-            cardNumberTemp: "",
-            isCardFlipped: false,
-            focusElementStyle: null,
-            isInputFocused: false
-          };
-        },
-        mounted() {
-          this.cardNumberTemp = this.otherCardMask;
-          document.getElementById("cardNumber").focus();
-        },
-        computed: {
-          getCardType () {
-            let number = this.cardNumber;
-            let re = new RegExp("^4");
-            if (number.match(re) != null) return "visa";
-      
-            re = new RegExp("^(34|37)");
-            if (number.match(re) != null) return "amex";
-      
-            re = new RegExp("^5[1-5]");
-            if (number.match(re) != null) return "mastercard";
-      
-            re = new RegExp("^6011");
-            if (number.match(re) != null) return "discover";
-            
-            re = new RegExp('^9792')
-            if (number.match(re) != null) return 'troy'
-      
-            return "visa"; // default type
-          },
-              generateCardNumberMask () {
-                  return this.getCardType === "amex" ? this.amexCardMask : this.otherCardMask;
-          },
-          minCardMonth () {
-            if (this.cardYear === this.minCardYear) return new Date().getMonth() + 1;
-            return 1;
-          }
-        },
-        watch: {
-          cardYear () {
-            if (this.cardMonth < this.minCardMonth) {
-              this.cardMonth = "";
-            }
-          }
-        },
-        methods: {
-          flipCard (status) {
-            this.isCardFlipped = status;
-          },
-          focusInput (e) {
-            this.isInputFocused = true;
-            let targetRef = e.target.dataset.ref;
-            let target = this.$refs[targetRef];
-            this.focusElementStyle = {
-              width: `${target.offsetWidth}px`,
-              height: `${target.offsetHeight}px`,
-              transform: `translateX(${target.offsetLeft}px) translateY(${target.offsetTop}px)`
-            }
-          },
-          blurInput() {
-            let vm = this;
-            setTimeout(() => {
-              if (!vm.isInputFocused) {
-                vm.focusElementStyle = null;
-              }
-            }, 300);
-            vm.isInputFocused = false;
-          }
-        }
-      });
+export const Gateway = () => {
   return (
-    <div>
-          <div class="wrapper" id="app">
+    
+      <div class="wrapper" id="app">
     <div class="card-form">
       <div class="card-list">
         <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
@@ -116,7 +33,7 @@ export default function Gateway() {
                     >*</div>
                     <div class="card-item__numberItem"
                       :class="{ '-active' : n.trim() === '' }"
-                      :key="$index" v-else-if="cardNumber.length > $index">
+                      :key="$index" v-else-if="cardNumber.length {'>'} $index">
                       {{cardNumber[$index]}}
                     </div>
                     <div
@@ -137,13 +54,13 @@ export default function Gateway() {
                         v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''"
                       >*</div>
                       <div class="card-item__numberItem"
-                        :class="{ '-active' : n.trim() === '' }"
+                        :class="{ '-active' : n.trim() === '' &rbrace;"
                         :key="$index" v-else-if="cardNumber.length > $index">
                         {{cardNumber[$index]}}
                       </div>
                       <div
                         class="card-item__numberItem"
-                        :class="{ '-active' : n.trim() === '' }"
+                        :class="{ '-active' : n.trim() === '' &rbrace;"
                         v-else
                         :key="$index + 1"
                       >{{n}}</div>
@@ -174,7 +91,7 @@ export default function Gateway() {
                   /
                   <label for="cardYear" class="card-item__dateItem">
                     <transition name="slide-fade-up">
-                      <span v-if="cardYear" v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
+                      <span v-if="cardYear" v-bind:key="cardYear">{{String().slice(2,4)}}</span>
                       <span v-else key="2">YY</span>
                     </transition>
                   </label>
@@ -210,7 +127,7 @@ export default function Gateway() {
         </div>
         <div class="card-input">
           <label for="cardName" class="card-input__label">Card Holders</label>
-          <input type="text" id="cardName" class="card-input__input" v-model="cardName" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
+          <input type="text" id="cardName" class="card-input__input" v-model="cardName" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off"/>
         </div>
         <div class="card-form__row">
           <div class="card-form__col">
@@ -233,7 +150,7 @@ export default function Gateway() {
           <div class="card-form__col -cvv">
             <div class="card-input">
               <label for="cardCvv" class="card-input__label">CVV</label>
-              <input type="text" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)" autocomplete="off">
+              <input type="text" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)" autocomplete="off"/>
             </div>
           </div>
         </div>
@@ -248,6 +165,7 @@ export default function Gateway() {
       See on GitHub
     </a>
   </div>
-    </div>
+  </div>
+  
   )
 }
