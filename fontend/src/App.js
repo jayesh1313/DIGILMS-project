@@ -10,6 +10,7 @@ import { dashboard } from "./components/user/dashboard";
 import Register from "./components/trainer/Register";
 import Trainerlogin from "./components/trainer/Trainerlogin";
 import BrowseCourse from "./components/main/Browsecourse";
+import Addcourse from "./components/main/Addcourse";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route element={<Main />} path="main">
             <Route element={<Home />} path="home" />
             <Route element={<BrowseCourse />} path="browsecourse" />
+            <Route element={<Addcourse />} path="Addcourse" />
           </Route>
           <Route element={<Main />} path="main">
             <Route element={<Login />} path="Login" />
