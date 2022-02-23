@@ -1,11 +1,15 @@
 import { Outlet } from "react-router-dom";
+import Header from "./header";
+import Footer from "./footer";
 
-const Main = () => {
+const Admin = () => {
   return (
     <>
+      <Header />
       <Outlet />
+      <Footer />
     </>
   );
 };
 
-export default admin;
+export default Admin;
