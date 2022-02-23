@@ -22,21 +22,18 @@ function App() {
             <Route element={<Home />} path="home" />
             <Route element={<BrowseCourse />} path="browsecourse" />
             <Route element={<Addcourse />} path="Addcourse" />
-          </Route>
-          <Route element={<Main />} path="main">
             <Route element={<Login />} path="Login" />
-          </Route>
-          <Route element={<Main />} path="main">
             <Route element={<Signup />} path="signup" />
-          </Route>
+            <Route element={<Addcourse />} path="Addcourse" />
 
+          </Route>
+          
+         
           <Route element={<Trainer />} path="trainer">
             <Route element={<Register />} path="Register" />
             <Route element={<Trainerlogin />} path="login" />
           </Route>
-          {/* <Route element={<Main />} path="main">
-            <Route element={<Addcourse />} path="Addcourse" />
-          </Route> */}
+         
          
           {/* <Route element={<user />} path="user">
             <Route element={<dashboard />} path="dashboard" />
