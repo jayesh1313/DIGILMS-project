@@ -181,7 +181,7 @@ export default function BrowseCourse() {
           <CardMedia
             component="img"
             height="140"
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwamMtJ87fKPMFsN7wkFSRBqN-SzN6fNaIKWLmnCBF-laeShN_oN4mqV68QI-CHU6d5LU&usqp=CAU"
+            image="https://media.istockphoto.com/photos/3d-text-of-java-picture-id870344898?b=1&k=20&m=870344898&s=170667a&w=0&h=RyvW8NdmeNj9_v2rA30yqZ7Q2hE5RDBCrOQlH52Bzk0="
             alt="green iguana"
           />
           <CardContent>
