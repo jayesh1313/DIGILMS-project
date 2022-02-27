@@ -33,14 +33,14 @@
 //                     >*</div>
 //                     <div class="card-item__numberItem"
 //                       :class="{ '-active' : n.trim() === '' }"
-//                       :key="$index" v-else-if="cardNumber.length {'>'} $index">
-//                       {{cardNumber[$index]}}
+//                       :key="index" v-else-if="cardNumber.length {'>'} $index">
+//                       {{cardNumber[index]}}
 //                     </div>
 //                     <div
 //                       class="card-item__numberItem"
 //                       :class="{ '-active' : n.trim() === '' }"
 //                       v-else
-//                       :key="$index + 1"
+//                       :key="index + 1"
 //                     >{{n}}</div>
 //                   </transition>
 //                 </span>
@@ -161,7 +161,7 @@
 //       </div>
 //     </div>
     
-//    
+   
 //   </div>
 //   </div>
   
