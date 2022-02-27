@@ -161,9 +161,7 @@
 //       </div>
 //     </div>
     
-//     <a href="https://github.com/muhammederdem/credit-card-form" target="_blank" class="github-btn">
-//       See on GitHub
-//     </a>
+//    
 //   </div>
 //   </div>
   
