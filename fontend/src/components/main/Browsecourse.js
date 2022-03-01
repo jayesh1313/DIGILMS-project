@@ -194,7 +194,7 @@ export default function BrowseCourse() {
           </CardContent>
           <CardActions>
             <Button size="small">Share</Button>
-            <Link size="small" to="/course/Javaa">Learn More</Link>
+            <Link variant="outlined"  to="/course/Javaa">Learn More</Link>
           </CardActions>
         </Card>
 
