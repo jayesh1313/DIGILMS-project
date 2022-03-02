@@ -17,7 +17,7 @@ router.post("/add", (req, res) => {
 router.get("/getall", (req, res) => {
   Model.find({})
     .then((data) => {
-      console.log("user data saved!!");
+      console.log("Course added sucessfully !!");
       res.status(200).json(data);
     })
     .catch((err) => {

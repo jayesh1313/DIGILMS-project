@@ -193,7 +193,7 @@ export default function BrowseCourse() {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Share</Button>
+            <Button size="small">Add to cart</Button>
             <Link variant="outlined"  to="/course/Javaa">Learn More</Link>
           </CardActions>
         </Card>
