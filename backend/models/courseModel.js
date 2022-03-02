@@ -9,6 +9,6 @@ const schema = new mongoose.Schema({
   isAdmin: { type: Boolean, default: false },
 });
 
-const model = mongoose.model("admin", schema);
+const model = mongoose.model("courses", schema);
 
 module.exports = model;
