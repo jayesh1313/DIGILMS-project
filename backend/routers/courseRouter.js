@@ -1,4 +1,4 @@
-const Model = require("../models/AddCourseModel");
+const Model = require("../models/courseModel");
 const router = require("express").Router();
 
 router.post("/add", (req, res) => {
