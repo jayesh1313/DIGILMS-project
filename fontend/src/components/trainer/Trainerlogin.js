@@ -1,42 +1,83 @@
-import React from 'react'
-import '../../stylesheet/trainerlogin.css'
+import React from "react";
+import "../../stylesheet/Login.css";
+import { Formik } from "formik";
+import app_config from "../../config";
+import Swal from "sweetalert2";
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
 export default function Trainerlogin() {
+  const url = app_config.api_url;
+
+  const trainerForm = {
+    
+    email: "",
+    password: "",
+   
+  };
+
+  const submittrainer = (formdata) => {
+    console.log(formdata);
+
+    fetch(url + "/trainer/add", {
+      method: "POST",
+      body: JSON.stringify(formdata),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        Swal.fire({
+          icon: "success",
+          title: "success",
+          text: "trainer Login Successfully",
+        });
+      });
+  };
+
   return (
     <div>
-        <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email"/>
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password"/>
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
-				<h3>log in via</h3>
-				<div class="social-icons">
-					<a href="#" class="social-login__icon fab fa-instagram"></a>
-					<a href="#" class="social-login__icon fab fa-facebook"></a>
-					<a href="#" class="social-login__icon fab fa-twitter"></a>
-				</div>
-			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-</div>
+      <div class="login-box1">
+        <h2>Login</h2>
+
+        <Formik initialValues={trainerForm} onSubmit={submittrainer}>
+          {({ values, handleChange, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              
+
+              <div class="trainer-box">
+                <input
+                  type="email"
+                  id="email"
+                  value={values.email}
+                  onChange={handleChange}
+                />
+                <label>Email</label>
+              </div>
+            
+              <div class="trainer-box">
+                <input
+                  type="password"
+                  id="password"
+                  value={values.password}
+                  onChange={handleChange}
+                />
+                <label>Password</label>
+              </div>
+              
+              <Button variant="contained">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+              </Button>
+            </form>
+          )}
+        </Formik>
+      </div>
     </div>
-  )
+  );
 }

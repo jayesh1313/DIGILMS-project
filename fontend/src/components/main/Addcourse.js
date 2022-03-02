@@ -18,7 +18,6 @@ export default function Addcourse() {
     Duration: "",
     Priceing: "",
     Tranier : "",
-    
     Description: "",
   };
 

@@ -4,6 +4,7 @@ import Main from "./components/main";
 import Home from "./components/main/Home";
 import Login from "./components/main/Login";
 import Trainer from "./components/trainer";
+import Course from "./components/course";
 
 import Signup from "./components/main/signup";
 import Register from "./components/trainer/Register";
@@ -16,6 +17,7 @@ import AdminDashboard from "./components/admin/dashboard";
 
 import User from "./components/user";
 import UserDashboard from "./components/user/dashboard";
+import Javaa from "./components/course/Javaa";
 
 function App() {
   return (
@@ -38,6 +40,9 @@ function App() {
 
           <Route element={<User />} path="user">
             <Route element={<UserDashboard />} path="dashboard" />
+          </Route>
+          <Route element={<Course />} path="course">
+            <Route element={<Javaa />} path="Javaa" />
           </Route>
 
           <Route element={<Admin />} path="admin">
