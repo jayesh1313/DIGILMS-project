@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const userRouter = require("./routers/userRouter");
 const trainerRouter = require("./routers/trainerRouter");
-const AddCourseRouter = require("./routers/AddCourseRouter");
+const courseRouter = require("./routers/courseRouter");
 
 app.use(
   cors({
@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use("/user", userRouter);
 app.use("/trainer", trainerRouter);
-app.use("/course", AddCourseRouter);
+app.use("/course", courseRouter);
 
 app.listen(port, () => {
   console.log("server started");
