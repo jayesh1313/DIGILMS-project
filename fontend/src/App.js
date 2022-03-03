@@ -18,7 +18,7 @@ import AdminDashboard from "./components/admin/dashboard";
 import User from "./components/user";
 import UserDashboard from "./components/user/dashboard";
 import Javaa from "./components/course/Javaa";
-
+import BrowseTrainern from "./components/trainer/BrowseTrainern";
 function App() {
   return (
     <div>
@@ -36,6 +36,7 @@ function App() {
           <Route element={<Trainer />} path="trainer">
             <Route element={<Register />} path="Register" />
             <Route element={<Trainerlogin />} path="login" />
+            <Route element={<BrowseTrainern />} path="BrowseTrainer" />
           </Route>
 
           <Route element={<User />} path="user">
