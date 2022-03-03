@@ -10,11 +10,8 @@ export default function Login() {
   const url = app_config.api_url;
 
   const userForm = {
-    
     email: "",
-    
     password: "",
-   
   };
 
   const submituser = (formdata) => {
