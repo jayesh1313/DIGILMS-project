@@ -18,7 +18,7 @@ import AdminDashboard from "./components/admin/dashboard";
 import User from "./components/user";
 import UserDashboard from "./components/user/dashboard";
 import Javaa from "./components/course/Javaa";
-import BrowseTrainern from "./components/trainer/BrowseTrainern";
+import BrowseTrainern from "./components/trainer/BrowseTrainer";
 function App() {
   return (
     <div>
