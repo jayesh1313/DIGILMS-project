@@ -1,12 +1,5 @@
 import React from 'react'
-import { Card, Container, Grid, Paper } from '@mui/material';
-import { Link } from "react-router-dom";
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import '../course/Javaa'
+
 import'../../stylesheet/BrowseTrainer.css';
 
 export default function BrowseCourse() {
@@ -45,7 +38,7 @@ export default function BrowseCourse() {
   <div class="card">
     <div class="content">
       <h2 class="title">Web developer</h2>
-      <p class="copy">Dr.Rahul</p>
+      <p class="copy">Dr.Gaurav Taneja </p>
       <button class="btn">View Course</button>
     </div>
   </div>
