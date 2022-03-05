@@ -5,9 +5,11 @@ import app_config from "../../config";
 import Swal from "sweetalert2";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { useNavigate } from "react-router-dom";
 
 export default function Trainerlogin() {
   const url = app_config.api_url;
+  const navigate = useNavigate();
 
   const trainerForm = {
     
@@ -33,7 +35,9 @@ export default function Trainerlogin() {
           icon: "success",
           title: "success",
           text: "trainer Login Successfully",
-        });
+        }).then(() => {
+          navigate('/')
+        })
       });
   };
 
@@ -67,7 +71,7 @@ export default function Trainerlogin() {
                 <label>Password</label>
               </div>
               
-              <Button variant="contained">
+              <Button variant="contained" type="submit">
                 <span></span>
                 <span></span>
                 <span></span>

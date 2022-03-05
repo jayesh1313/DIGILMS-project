@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import'../../stylesheet/BrowseTrainer.css';
 
 export default function BrowseCourse() {
+
+
+  const [courseList, setCourseList] = useState([]);
+
+  const fetchCourses = () => {
+    
+  }
 
  
     return (

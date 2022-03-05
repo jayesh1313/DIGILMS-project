@@ -10,7 +10,7 @@ import Signup from "./components/main/signup";
 import Register from "./components/trainer/Register";
 import Trainerlogin from "./components/trainer/Trainerlogin";
 import BrowseCourse from "./components/main/Browsecourse";
-import Addcourse from "./components/main/Addcourse";
+import Addcourse from "./components/trainer/Addcourse";
 
 import Admin from "./components/admin";
 import AdminDashboard from "./components/admin/dashboard";
@@ -19,6 +19,7 @@ import User from "./components/user";
 import UserDashboard from "./components/user/dashboard";
 import Javaa from "./components/course/Javaa";
 import BrowseTrainern from "./components/trainer/BrowseTrainer";
+import TrainerDashboard from "./components/trainer/dashboard";
 function App() {
   return (
     <div>
@@ -30,13 +31,15 @@ function App() {
             <Route element={<Addcourse />} path="Addcourse" />
             <Route element={<Login />} path="Login" />
             <Route element={<Signup />} path="signup" />
-            <Route element={<Addcourse />} path="Addcourse" />
           </Route>
 
           <Route element={<Trainer />} path="trainer">
             <Route element={<Register />} path="Register" />
             <Route element={<Trainerlogin />} path="login" />
             <Route element={<BrowseTrainern />} path="BrowseTrainer" />
+            <Route element={<TrainerDashboard />} path="dashboard">
+              <Route element={<Addcourse />} path="Addcourse" />
+            </Route>
           </Route>
 
           <Route element={<User />} path="user">
