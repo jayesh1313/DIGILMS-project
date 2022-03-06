@@ -1,10 +1,10 @@
 const mongoose = require("../connection");
 const schema = new mongoose.Schema({
-  Title: String,
-  Duration: String,
-  Priceing: String,
-  Trainner: String,
-  Discription: String,
+  title: String,
+  duration: String,
+  pricing: String,
+  trainer: String,
+  description: String,
   createdAt: { type: Date, default: new Date() },
   isAdmin: { type: Boolean, default: false },
 });

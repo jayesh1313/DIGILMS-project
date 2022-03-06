@@ -10,6 +10,7 @@ import Signup from "./components/main/signup";
 import Register from "./components/trainer/Register";
 import Trainerlogin from "./components/trainer/Trainerlogin";
 import BrowseCourse from "./components/main/Browsecourse";
+import NotFound from "./components/main/NotFound";
 import Addcourse from "./components/trainer/Addcourse";
 
 import Admin from "./components/admin";
@@ -28,9 +29,9 @@ function App() {
           <Route element={<Main />} path="main">
             <Route element={<Home />} path="home" />
             <Route element={<BrowseCourse />} path="browsecourse" />
-            <Route element={<Addcourse />} path="Addcourse" />
             <Route element={<Login />} path="Login" />
             <Route element={<Signup />} path="signup" />
+            <Route element={<NotFound />} path="NotFound" />
           </Route>
 
           <Route element={<Trainer />} path="trainer">
@@ -53,6 +54,7 @@ function App() {
             <Route element={<AdminDashboard />} path="dashboard" />
           </Route>
           <Route exact element={<Navigate to="/main/home" />} path="" />
+          <Route exact element={<Navigate to="/main/NotFound" />} path="*" />
         </Routes>
       </BrowserRouter>
     </div>

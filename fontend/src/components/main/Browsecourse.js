@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
+import app_config from '../../config';
 
 import'../../stylesheet/BrowseTrainer.css';
 
 export default function BrowseCourse() {
-
+  const url = app_config.api_url;
 
   const [courseList, setCourseList] = useState([]);
+  const [loading, setLoading] = useState(true)
+
+
 
   const fetchCourses = () => {
-    
+      fetch(ur)
   }
 
  
@@ -75,4 +79,4 @@ export default function BrowseCourse() {
       
   )
 
-}
+}}

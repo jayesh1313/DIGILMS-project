@@ -42,7 +42,7 @@ export default function Trainerlogin() {
   };
 
   return (
-    <div>
+    <div class="back">
       <div class="login-box1">
         <h2>Login</h2>
 

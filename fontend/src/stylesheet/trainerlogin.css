@@ -10,7 +10,9 @@
 body {
 	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
 }
-
+.back1{
+	background-image: url(https://c4.wallpaperflare.com/wallpaper/526/8/1002/library-interior-interior-design-books-wallpaper-preview.jpg);
+}
 .container {
 	display: flex;
 	align-items: center;

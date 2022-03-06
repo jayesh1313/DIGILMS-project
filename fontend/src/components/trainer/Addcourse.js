@@ -14,11 +14,11 @@ export default function Addcourse() {
     display: "none",
   });
   const AddCourseForm = {
-    Title: "",
-    Duration: "",
-    Priceing: "",
-    Tranier: "",
-    Description: "",
+    title: "",
+    duration: "",
+    pricing: "",
+    trainer: "",
+    description: "",
   };
 
   const submitTrainer = (formdata) => {
@@ -53,8 +53,8 @@ export default function Addcourse() {
               <div class="user-box">
                 <input
                   type="text"
-                  id="Title"
-                  value={values.Title}
+                  id="title"
+                  value={values.title}
                   onChange={handleChange}
                 />
                 <label>Title</label>
@@ -63,8 +63,8 @@ export default function Addcourse() {
               <div class="user-box">
                 <input
                   type="text"
-                  id="Duration"
-                  value={values.Duration}
+                  id="duration"
+                  value={values.duration}
                   onChange={handleChange}
                 />
                 <label>Duration</label>
@@ -72,8 +72,8 @@ export default function Addcourse() {
               <div class="user-box">
                 <input
                   type="number"
-                  id="Priceing"
-                  value={values.Priceing}
+                  id="pricing"
+                  value={values.pricing}
                   onChange={handleChange}
                 />
                 <label>Priceing</label>
@@ -81,8 +81,8 @@ export default function Addcourse() {
               <div class="user-box">
                 <input
                   type="text"
-                  id="Trainer"
-                  value={values.Tranier}
+                  id="trainer"
+                  value={values.trainer}
                   onChange={handleChange}
                 />
                 <label>Trainer</label>
@@ -91,8 +91,8 @@ export default function Addcourse() {
               <div class="user-box">
                 <input
                   type="text"
-                  id="Description"
-                  value={values.Description}
+                  id="description"
+                  value={values.description}
                   onChange={handleChange}
                 />
                 <label>Description</label>

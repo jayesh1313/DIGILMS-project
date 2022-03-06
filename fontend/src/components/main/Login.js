@@ -36,7 +36,7 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div class="back2">
       <div class="login-box1">
         <h2>Login</h2>
 
@@ -65,7 +65,7 @@ export default function Login() {
                 <label>Password</label>
               </div>
               
-              <Button variant="contained">
+              <Button variant="contained" type="sumbit">
                 <span></span>
                 <span></span>
                 <span></span>
