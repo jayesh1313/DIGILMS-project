@@ -12,7 +12,7 @@ export default function BrowseCourse() {
 
 
   const fetchCourses = () => {
-      fetch(ur)
+      // fetch(ur)
   }
 
  
