@@ -23,7 +23,7 @@ const Header = () => {
           <Link to="/main/signup">Register as Student</Link>
           <Link to="/trainer/Register">Register as Trainer</Link>
           <Link to="/main/browsecourse">Get Started</Link>
-          <Link to="/main/Addcourse">Add Course</Link>
+          <Link to="/trainer/Addcourse">Add Course</Link>
           {/* <a href="https://codepen.io/jo_Geek/" target="_blank">Codepen</a>
     <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">JsFiddle</a> */}
         </div>

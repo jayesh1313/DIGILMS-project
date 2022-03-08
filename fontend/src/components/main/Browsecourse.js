@@ -10,7 +10,7 @@ export default function BrowseCourse() {
   const [loading, setLoading] = useState(true);
 
   const fetchCourses = () => {
-    fetch(url + "/courses/getall")
+    fetch(url + "/course/getall")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
