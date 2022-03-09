@@ -10,7 +10,7 @@ export default function Home() {
 
 
 
-    
+{/*     
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
@@ -37,7 +37,7 @@ export default function Home() {
       </div>
     </div>
   </nav>
-</header>
+</header> */}
 
 
 
