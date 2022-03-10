@@ -4,7 +4,7 @@ import Header from "./header";
 const Main = () => {
   return (
     <>
-    <Header></Header>
+      <Header></Header>
       <Outlet />
       <Footer></Footer>
     </>
