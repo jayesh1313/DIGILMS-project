@@ -34,7 +34,7 @@ export default function Trainerlogin() {
         Swal.fire({
           icon: "success",
           title: "success",
-          text: "trainer Login Successfully",
+          text: "Trainer Login Successfully",
         }).then(() => {
           navigate('/')
         })
