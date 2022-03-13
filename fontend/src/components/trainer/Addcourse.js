@@ -6,8 +6,9 @@ import { Assignment } from '@mui/icons-material';
 import { PersonPin } from '@mui/icons-material';
 import update from 'immutability-helper';
 
-import { Autocomplete, Accordion, AccordionActions, AccordionDetails, AccordionSummary, Button, Card, CardContent, Chip, FormControl, InputBase, InputLabel, makeStyles, MenuItem, Paper, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
+import { Autocomplete, Accordion, AccordionActions, AccordionDetails, AccordionSummary, Button, Card, CardContent, Chip, FormControl, InputBase, InputLabel,  MenuItem, Paper, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { makeStyles } from '@mui/styles';
 
 import { Ballot } from '@mui/icons-material';
 import { CourseContext } from '../../providers/courseContext';
