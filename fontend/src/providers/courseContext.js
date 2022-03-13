@@ -1,16 +1,14 @@
-// import {ExpandMoreIcon} from "@mui/material";
-// import {AssignmentIcon} from "@mui/material";
-// import {PersonPinIcon} from "@mui/material";
-import { ExpandMore } from '@mui/icons-material';
-import { Assignment } from '@mui/icons-material';
-import { PersonPin } from '@mui/icons-material';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import PersonPinIcon from '@material-ui/icons/PersonPin';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import update from 'immutability-helper';
 
-import { Autocomplete, Accordion, AccordionActions, AccordionDetails, AccordionSummary, Button, Card, CardContent, Chip, FormControl, InputBase, InputLabel, makeStyles, MenuItem, Paper, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
+import { Accordion, AccordionActions, AccordionDetails, AccordionSummary, Button, Card, CardContent, Chip, FormControl, InputBase, InputLabel, makeStyles, MenuItem, Paper, Select, Tab, Tabs, TextField, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 
-import { Ballot } from '@mui/icons-material';
+import { Ballot } from '@material-ui/icons';
 import { CourseContext } from '../../providers/courseContext';
+import { Autocomplete } from '@material-ui/lab';
 import { Formik } from 'formik';
 import Swal from 'sweetalert2';
 
@@ -239,7 +237,7 @@ const AddCourse = () => {
                                 section.lectures.map((lecture, lect_i) =>
                                 (
                                     <Accordion key={lect_i}>
-                                        <AccordionSummary expandIcon={<ExpandMore />}>
+                                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                                             <h4>Lecture {`${lect_i + 1}: `}<InputBase value={lecture.name} onChange={e => handleRename('lect_name', e.target.value, sect_i, lect_i)}></InputBase></h4>
                                         </AccordionSummary>
                                         <AccordionDetails>
@@ -279,9 +277,9 @@ const AddCourse = () => {
                     textColor="secondary"
                     aria-label="icon label tabs example"
                 >
-                    <Tab icon={<Assignment />} label="Course Details" />
+                    <Tab icon={<AssignmentIcon />} label="Course Details" />
                     <Tab icon={<Ballot />} label="Curriculum" />
-                    <Tab icon={<PersonPin />} label="Additional" />
+                    <Tab icon={<PersonPinIcon />} label="Additional" />
                 </Tabs>
             </Paper>
 
