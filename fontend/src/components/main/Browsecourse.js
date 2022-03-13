@@ -27,12 +27,12 @@ export default function BrowseCourse() {
     if (!loading) {
       return courseList.map((course) => (
         <div class="card">
-    <div class="content">
-      <h2 class="title">Web developer</h2>
-      <p class="copy">Dr.Rahul</p>
-      <button class="btn">View Course</button>
-    </div>
-    </div>
+          <div class="content">
+            <h2 class="title">Web developer</h2>
+            <p class="copy">Dr.Rahul</p>
+            <button class="btn">View Course</button>
+          </div>
+        </div>
       ));
     }
   };
