@@ -18,7 +18,7 @@ const Header = () => {
           <li><Link  class="nav-link px-2 text-white" to="/main/signup">Register AS Student</Link></li>
           <li><Link  class="nav-link px-2 text-white" to="/trainer/Register">Rgister As Trainer</Link></li>
           <li><Link  class="nav-link px-2 text-white" to="/main/Browsecourse">Browse Course</Link></li>
-          <li><Link  class="nav-link px-2 text-white" to="/trainer/Addcourse">Addcourse</Link></li>
+          <li><Link  class="nav-link px-2 text-white" to="/trainer/dashboard/addcourse">Addcourse</Link></li>
           <li><Link  class="nav-link px-2 text-white" to="/trainer/BrowseTrainer">Browse Trainer</Link></li>
         </ul>
 
