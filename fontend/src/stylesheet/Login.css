@@ -166,3 +166,8 @@ body {
     bottom: 100%;
   }
 }
+.back2{
+  width: max-content;
+  height: max-content;
+  padding-bottom: 35%;
+}
