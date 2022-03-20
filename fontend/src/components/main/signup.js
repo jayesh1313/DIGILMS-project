@@ -2,7 +2,7 @@ import React from 'react'
 import '../../stylesheet/signup.css'
 export default function signup() {
   return (
-    <div>
+    <div className='sing'>
       <div class="login-box">
   <h2>Register</h2>
   <form>
