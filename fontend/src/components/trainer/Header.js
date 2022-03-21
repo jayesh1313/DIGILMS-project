@@ -20,6 +20,7 @@ const Header = () => {
           <li><Link  class="nav-link px-2 text-white" to="/main/Browsecourse">Browse Course</Link></li>
           <li><Link  class="nav-link px-2 text-white" to="/trainer/dashboard/addcourse">Addcourse</Link></li>
           <li><Link  class="nav-link px-2 text-white" to="/trainer/BrowseTrainer">Browse Trainer</Link></li>
+          <li><Link  class="nav-link px-2 text-white" to="/trainer/CourseDetail">Course details</Link></li>
         </ul>
 
         {/* <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

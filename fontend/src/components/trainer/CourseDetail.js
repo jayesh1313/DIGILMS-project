@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CourseDetail() {
+ function CourseDetail() {
   return (
     <div>
      
@@ -67,3 +67,4 @@ export default function CourseDetail() {
     </div>
   )
 }
+export default CourseDetail;
