@@ -1,9 +1,12 @@
 import React from 'react'
+import app_config from '../../config'
 import p1 from '../../images/p1.jpg'
 import '../../images/p2.jpg'
 import '../../images/p3.jpg'
 import '../../stylesheet/Home.css'
 export default function Home() {
+
+  const url = app_config.api_url;
   return (
     <div>
     
@@ -15,8 +18,9 @@ export default function Home() {
     </div>
     <div class="carousel-inner">
       <div class="carousel-item  active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="https://stimg.cardekho.com/images/carexteriorimages/930x620/Lamborghini/Aventador/6721/Lamborghini-Aventador-SVJ/1621849426405/front-left-side-47.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-         
+      <div className='slider' style={{height : '510px', background:'url('+url+'/images/python.webp)'}}>
+
+</div>
         <div class="container">
           <div class="carousel-caption text-start">
             <h1>Example headline.</h1>
@@ -76,9 +80,10 @@ export default function Home() {
       </div>
       </div>
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <div style={{height : '200px', background:'red'}}>
 
-        <h2>Heading</h2>
+        </div>
+         <h2>Heading</h2>
         <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div>

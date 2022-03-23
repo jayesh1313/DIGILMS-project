@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
   trainer: String,
   description: String,
   createdAt: { type: Date, default: new Date() },
-  isAdmin: { type: Boolean, default: false },
+  
 });
 
 const model = mongoose.model("courses", schema);

@@ -15,6 +15,7 @@ import Addcourse from "./components/trainer/Addcourse";
 
 import Admin from "./components/admin";
 import AdminDashboard from "./components/admin/dashboard";
+import TrainerManager from "./components/admin/TrainerManager";
 
 import User from "./components/user";
 import UserDashboard from "./components/user/dashboard";
@@ -54,6 +55,7 @@ function App() {
 
           <Route element={<Admin />} path="admin">
             <Route element={<AdminDashboard />} path="dashboard" />
+            <Route element={< TrainerManager />} path="TrainerManager" />
           </Route>
           <Route exact element={<Navigate to="/main/home" />} path="" />
           <Route exact element={<Navigate to="/main/NotFound" />} path="*" />

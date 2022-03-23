@@ -15,6 +15,8 @@ app.use(
 );
 app.use(express.json());
 
+app.use(express.static('./static'))
+
 app.use("/user", userRouter);
 app.use("/trainer", trainerRouter);
 app.use("/course", courseRouter);

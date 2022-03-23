@@ -11,7 +11,7 @@
   --placeholder: #ccd0d2;
 }
 
-/* * {
+* {
   outline: none;
   box-sizing: border-box;
 }
@@ -34,7 +34,7 @@ body {
   font-weight: 400;
   margin: 0;
   
-} */
+}
 
 .likes, .year-book, .author, .main-menu, .profile-menu, .profile, .browse-category, .browse, .header {
   display: flex;
