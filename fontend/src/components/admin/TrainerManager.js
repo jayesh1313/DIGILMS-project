@@ -1,7 +1,17 @@
 import React from 'react'
+import app_config from '../../config'
 
  function TrainerManager() {
-  return (
+
+    const url = app_config.api_url;
+  
+    const fetchTrainers = () => {
+        fetch(url+'/trainer/getall')
+        .then
+    }
+
+    return (
+
     <div>
 <table class="table">
 
