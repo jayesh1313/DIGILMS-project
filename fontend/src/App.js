@@ -54,8 +54,9 @@ function App() {
           </Route>
 
           <Route element={<Admin />} path="admin">
-            <Route element={<AdminDashboard />} path="dashboard" />
-            <Route element={< TrainerManager />} path="TrainerManager" />
+            <Route element={<AdminDashboard />} path="dashboard">
+              <Route element={<TrainerManager />} path="TrainerManager" />
+            </Route>
           </Route>
           <Route exact element={<Navigate to="/main/home" />} path="" />
           <Route exact element={<Navigate to="/main/NotFound" />} path="*" />

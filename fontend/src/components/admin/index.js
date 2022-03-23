@@ -5,9 +5,9 @@ import Footer from "./footer";
 const Admin = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
