@@ -21,6 +21,7 @@ const Header = () => {
           <li><Link  class="nav-link px-2 text-white" to="/trainer/dashboard/addcourse">Addcourse</Link></li>
           <li><Link  class="nav-link px-2 text-white" to="/trainer/BrowseTrainer">Browse Trainer</Link></li>
           <li><Link  class="nav-link px-2 text-white" to="/trainer/CourseDetail">Course details</Link></li>
+          <li><Link  class="nav-link px-2 text-white" to="/admin/AdminLogin">Login As Admin</Link></li>
 
         </ul>
 
