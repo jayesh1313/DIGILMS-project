@@ -2,7 +2,7 @@ import React from 'react'
 import '../../stylesheet/AdminLogin.css'
  function AdminLogin() {
   return (
-    <div>
+    <div className='abcd'>
        <body>
     <form>
       <div class="login-box">
