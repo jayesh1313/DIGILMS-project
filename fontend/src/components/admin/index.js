@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./header";
-import Footer from "./footer";
+import Footer from "./Footer";
 import Sidebar from "../SideBar";
 import { AccountCircle, Dashboard } from "@mui/icons-material";
 
@@ -24,7 +24,7 @@ const Admin = () => {
       <Sidebar sideOptions={sideOptions}>
         <Outlet />
       </Sidebar>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
