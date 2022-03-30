@@ -1,3 +1,13 @@
+
+.back2{
+  width: max-content;
+  height: max-content;
+  padding-bottom: 35%;
+}
+h1
+{
+  text-align:center;
+}
 html {
   height: 100%;
 }
@@ -5,8 +15,7 @@ body {
   margin:0;
   padding:0;
   font-family: sans-serif;
-  /* background: linear-gradient(#141e30, #243b55); */
-  background-image: url(https://c4.wallpaperflare.com/wallpaper/526/8/1002/library-interior-interior-design-books-wallpaper-preview.jpg);
+  background: linear-gradient(#141e30, #243b55);
 }
 
 .login-box {
@@ -165,9 +174,4 @@ body {
   50%,100% {
     bottom: 100%;
   }
-}
-.back2{
-  width: max-content;
-  height: max-content;
-  padding-bottom: 35%;
 }

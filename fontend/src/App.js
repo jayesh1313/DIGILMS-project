@@ -39,7 +39,7 @@ function App() {
 
           <Route element={<Trainer />} path="trainer">
             <Route element={<Register />} path="Register" />
-            <Route element={<Trainerlogin />} path="login" />
+            <Route element={<Trainerlogin />} path="Tranierlogin" />
             <Route element={<BrowseTrainer />} path="BrowseTrainer" />
             <Route element={<TrainerDashboard />} path="dashboard">
               <Route element={<Addcourse />} path="Addcourse" />
@@ -55,10 +55,9 @@ function App() {
           </Route>
 
           <Route element={<Admin />} path="admin">
-            <Route element={<AdminDashboard />} path="dashboard">
+            <Route element={<AdminDashboard />} path="dashboard"/>
               <Route element={<TrainerManager />} path="TrainerManager" />
               <Route element={<AdminLogin />} path="AdminLogin" />
-            </Route>
           </Route>
           <Route exact element={<Navigate to="/main/home" />} path="" />
           <Route exact element={<Navigate to="/main/NotFound" />} path="*" />
