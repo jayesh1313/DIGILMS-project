@@ -45,14 +45,14 @@ export default function Login() {
   };
 
   return (
-    <div class="back2">
-      <div class="login-box1">
-        <h2>Login</h2>
-
-        <Formik initialValues={userForm} onSubmit={submituser}>
+    <div >
+        <body class="text-center">
+    
+    <main class="form-signin">
+    <Formik initialValues={userForm} onSubmit={submituser}>
           {({ values, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              ReactDOM.render(
+              {/* ReactDOM.render(
   <GoogleLogin
     clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
     buttonText="Login"
@@ -70,38 +70,41 @@ ReactDOM.render(
     // onClick={componentClicked}
     callback={responseFacebook} />,
   document.getElementById('demo')
-);
-              <div class="user-box">
-                <input
-                  type="email"
-                  id="email"
-                  value={values.email}
+); */}
+
+        <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/>
+        <h1 class="h3 mb-3 fw-normal">Student sign in</h1>
+    
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email"value={values.email}
                   onChange={handleChange}
-                />
-                <label>Email</label>
-              </div>
-            
-              <div class="user-box">
-                <input
-                  type="password"
-                  id="password"
+ placeholder="name@example.com"/>
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control"                   id="password"
                   value={values.password}
                   onChange={handleChange}
-                />
-                <label>Password</label>
-              </div>
-              
-              <Button variant="contained" type="sumbit">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Submit
-              </Button>
-            </form>
+ placeholder="Password"/>
+          <label for="floatingPassword">Password</label>
+        </div>
+    
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"/> Remember me
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        </form>
           )}
         </Formik>
-      </div>
+
+    </main>
+    
+    
+        
+      </body>
     </div>
   );
 }
