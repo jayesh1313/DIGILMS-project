@@ -39,7 +39,7 @@ export default function Login() {
         Swal.fire({
           icon: "success",
           title: "success",
-          text: "user Added Successfully",
+          text: "user Login Successfully",
         });
       });
   };
