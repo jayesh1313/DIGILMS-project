@@ -3,7 +3,6 @@ import Sidebar from "../SideBar";
 
 import { AccountCircle, Book, Dashboard, HowToReg } from "@mui/icons-material";
 
-
 import Footer from "./Footer";
 import Header from "./Header";
 import { Slider } from "@mui/material";
@@ -27,7 +26,7 @@ const Trainer = () => {
   ];
   return (
     <>
-      <Sidebar>
+      <Sidebar sideOptions={sideOptions}>
         <Outlet />
       </Sidebar>
     </>

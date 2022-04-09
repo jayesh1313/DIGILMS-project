@@ -41,10 +41,9 @@ function App() {
             <Route element={<Register />} path="Register" />
             <Route element={<Trainerlogin />} path="login" />
             <Route element={<BrowseTrainer />} path="BrowseTrainer" />
-            <Route element={<TrainerDashboard />} path="dashboard">
-              <Route element={<Addcourse />} path="Addcourse" />
-              <Route element={<CourseDetail />} path="CourseDetail" />
-            </Route>
+            <Route element={<TrainerDashboard />} path="dashboard" />
+            <Route element={<Addcourse />} path="Addcourse" />
+            <Route element={<CourseDetail />} path="CourseDetail" />
           </Route>
 
           <Route element={<User />} path="user">

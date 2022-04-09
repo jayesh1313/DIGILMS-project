@@ -14,12 +14,12 @@ const Admin = () => {
     {
       name: "Trainer Manager",
       icon: <HowToReg />,
-      link: "/trainer/BrowseTrainer",
+      link: "/admin/TrainerManager",
     },
     {
       name: "Add Course",
       icon: <Book />,
-      link: "/trainer/Addcourse",
+      link: "/admin/Addcourse",
     },
   ];
 
