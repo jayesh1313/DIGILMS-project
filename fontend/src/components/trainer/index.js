@@ -1,14 +1,15 @@
 import { Outlet } from "react-router-dom";
-import './SideBar'
+import Sidebar from "../SideBar";
+
 import Footer from "./Footer";
 import Header from "./Header";
 import { Slider } from "@mui/material";
 const Trainer = () => {
   return (
     <>
-      <Slider>
+      <Sidebar>
         <Outlet />
-      </Slider>
+      </Sidebar>
     </>
   );
 };
