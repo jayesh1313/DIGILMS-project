@@ -112,6 +112,7 @@ const AddCourse = () => {
     formdata["data"] = curriculum;
     formdata["avatar"] = avatar;
     console.log(formdata);
+    return;
 
     fetch(url + "/course/add", {
       method: "POST",
