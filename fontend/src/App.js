@@ -74,7 +74,7 @@ function App() {
             <Route element={<AdminDashboard />} path="dashboard" />
             <Route element={<TrainerManager />} path="TrainerManager" />
             <Route element={<AdminLogin />} path="login" />
-            <Route element={<ManageUsers />} path="mnanageuser" />
+            <Route element={<ManageUsers />} path="manageuser" />
             <Route element={<ManageCourses />} path="managecourse" />
           </Route>
 

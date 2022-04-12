@@ -216,9 +216,12 @@ const AddCourse = () => {
 
   const uploadThumbnail = (event) => {
     const data = new FormData();
-    data.append("file", event.target.files[0]);
+    data.append("myfile", event.target.files[0]);
     setAvatar(event.target.files[0].name);
-    courseService.uploadFile(data).then((res) => console.log(res));
+
+    fetch(url + "/util/uploadfile", { method: "POST", body: data }).then(
+      (res) => console.log(res)
+    );
 
     var mimeType = event.target.files[0].type;
     if (mimeType.match(/image\/*/) == null) {

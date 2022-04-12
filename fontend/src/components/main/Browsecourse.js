@@ -24,7 +24,7 @@ export default function BrowseCourse() {
   }, []);
 
   const displayCourses = () => {
-    return courseList.map(({}) => (
+    return courseList.map(({Title, Priceing, Duration, }) => (
       <div class="book-cell">
         <div class="book-img">
           <img
@@ -34,7 +34,7 @@ export default function BrowseCourse() {
           />
         </div>
         <div class="book-content">
-          <div class="book-title">BIG MAGIC</div>
+          <div class="book-title">{Title}</div>
           <div class="book-author">by Elizabeth Gilbert</div>
           <div class="rate">
             <fieldset class="rating">

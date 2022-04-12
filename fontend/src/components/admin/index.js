@@ -21,6 +21,16 @@ const Admin = () => {
       icon: <Book />,
       link: "/admin/Addcourse",
     },
+    {
+      name: "Manage User",
+      icon: <Book />,
+      link: "/admin/manageuser",
+    },
+    {
+      name: "Manage Courses",
+      icon: <Book />,
+      link: "/admin/managecourse",
+    },
   ];
 
   return (
