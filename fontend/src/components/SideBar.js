@@ -90,7 +90,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Sidebar({ children, sideOptions }) {
+export default function Sidebar({ children, sideOptions, title }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -122,7 +122,7 @@ export default function Sidebar({ children, sideOptions }) {
             <Menu />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>

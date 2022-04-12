@@ -26,7 +26,7 @@ const Trainer = () => {
   ];
   return (
     <>
-      <Sidebar sideOptions={sideOptions}>
+      <Sidebar sideOptions={sideOptions} title={"Trainer Dashboard"}>
         <Outlet />
       </Sidebar>
     </>

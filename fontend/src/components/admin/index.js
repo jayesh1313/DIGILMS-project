@@ -26,7 +26,7 @@ const Admin = () => {
   return (
     <>
       {/* <Header /> */}
-      <Sidebar sideOptions={sideOptions}>
+      <Sidebar sideOptions={sideOptions} title={"Admin Dashboard"}>
         <Outlet />
       </Sidebar>
       <Footer />
