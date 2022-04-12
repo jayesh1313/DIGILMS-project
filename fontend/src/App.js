@@ -24,6 +24,9 @@ import Javaa from "./components/course/Javaa";
 import BrowseTrainer from "./components/trainer/BrowseTrainer";
 import TrainerDashboard from "./components/trainer/dashboard";
 import CourseDetail from "./components/trainer/CourseDetail";
+import Authenticator from "./authenticator";
+import ManageUsers from "./components/admin/manageUsers";
+import ManageCourses from "./components/admin/manageCourses";
 function App() {
   return (
     <div>
@@ -37,7 +40,14 @@ function App() {
             <Route element={<NotFound />} path="NotFound" />
           </Route>
 
-          <Route element={<Trainer />} path="trainer">
+          <Route
+            element={
+              <Authenticator>
+                <Trainer />
+              </Authenticator>
+            }
+            path="trainer"
+          >
             <Route element={<Register />} path="Register" />
             <Route element={<Trainerlogin />} path="login" />
             <Route element={<BrowseTrainer />} path="BrowseTrainer" />
@@ -53,11 +63,27 @@ function App() {
             <Route element={<Javaa />} path="Javaa" />
           </Route>
 
-          <Route element={<Admin />} path="admin">
+          <Route
+            element={
+              <Authenticator>
+                <Admin />
+              </Authenticator>
+            }
+            path="admin"
+          >
             <Route element={<AdminDashboard />} path="dashboard" />
             <Route element={<TrainerManager />} path="TrainerManager" />
             <Route element={<AdminLogin />} path="login" />
+            <Route element={<ManageUsers />} path="mnanageuser" />
+            <Route element={<ManageCourses />} path="managecourse" />
           </Route>
+
+          <Route exact element={<Navigate to="/main/home" />} path="" />
+          <Route
+            exact
+            element={<Navigate to="/admin/manageuser" />}
+            path="/admin"
+          />
           <Route exact element={<Navigate to="/main/home" />} path="" />
           <Route exact element={<Navigate to="/main/NotFound" />} path="*" />
         </Routes>
