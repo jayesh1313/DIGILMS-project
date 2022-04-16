@@ -39,7 +39,7 @@ const Admin = () => {
       <Sidebar sideOptions={sideOptions} title={"Admin Dashboard"}>
         <Outlet />
       </Sidebar>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

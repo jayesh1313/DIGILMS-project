@@ -92,7 +92,7 @@ const Drawer = styled(MuiDrawer, {
 
 export default function Sidebar({ children, sideOptions, title }) {
   const theme = useTheme();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const navigate = useNavigate();
 

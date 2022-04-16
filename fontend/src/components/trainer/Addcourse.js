@@ -46,8 +46,10 @@ const styles = makeStyles((theme) => ({
   },
   input: {
     width: "100%",
+    marginTop: "3rem",
   },
   formControl: {
+    marginTop: "3rem",
     width: "100%",
   },
 }));
@@ -87,17 +89,22 @@ const AddCourse = () => {
 
   const [imgPath, setImgPath] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("trainer"))
+  );
 
   const courseForm = {
     title: "",
     description: "",
     category: "web dev",
     prerequisites: [],
-    avatar: "",
+    thumbnail: "",
     target: "",
     data: {},
-    price: 0,
+    pricing: 0,
+    trainer: currentUser._id,
     created: new Date(),
+    duration: 0,
     reviews: Array,
   };
 
@@ -110,10 +117,8 @@ const AddCourse = () => {
   const createCourse = () => {
     let formdata = tempForm;
     formdata["data"] = curriculum;
-    formdata["avatar"] = avatar;
+    formdata["thumbnail"] = avatar;
     console.log(formdata);
-    return;
-
     fetch(url + "/course/add", {
       method: "POST",
       body: JSON.stringify(formdata),
@@ -366,8 +371,10 @@ const AddCourse = () => {
         <Formik initialValues={courseForm} onSubmit={onFormSubmit}>
           {({ values, handleChange, handleSubmit, isSubmitting }) => (
             <form onSubmit={handleSubmit}>
-              <InputBase
+              <TextField
+                label="Course Title"
                 id="title"
+                variant="filled"
                 value={values.title}
                 onChange={handleChange}
                 className={classes.input}
@@ -420,7 +427,9 @@ const AddCourse = () => {
               />
 
               <h3 className="mt-5">What will Students Learn?</h3>
-              <InputBase
+              <TextField
+                label="Course Description"
+                variant="filled"
                 id="description"
                 value={values.description}
                 onChange={handleChange}
@@ -429,7 +438,9 @@ const AddCourse = () => {
               />
 
               <h3 className="mt-5">Target Students</h3>
-              <InputBase
+              <TextField
+                label="Target Students"
+                variant="filled"
                 id="target"
                 value={values.target}
                 onChange={handleChange}
@@ -438,16 +449,32 @@ const AddCourse = () => {
               />
 
               <h3 className="mt-5">Price</h3>
-              <InputBase
-                id="price"
+              <TextField
+                label="Course Price"
+                variant="filled"
+                id="pricing"
                 type="number"
-                value={values.price}
+                value={values.pricing}
                 onChange={handleChange}
                 className={classes.input}
                 placeholder={"1000"}
               />
 
-              <Button type="submit">Next</Button>
+              <h3 className="mt-5">Duration</h3>
+              <TextField
+                label="Course Duration (in Hours)"
+                variant="filled"
+                id="duration"
+                type="number"
+                value={values.duration}
+                onChange={handleChange}
+                className={classes.duration}
+                placeholder={"1000"}
+              />
+
+              <Button className="mt-5" variant="contained" type="submit">
+                Next
+              </Button>
             </form>
           )}
         </Formik>

@@ -3,8 +3,8 @@ import "../../stylesheet/Register.css";
 import { Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
 export default function Register() {
   const url = app_config.api_url;
@@ -102,11 +102,7 @@ export default function Register() {
                 />
                 <label>Qualification</label>
               </div>
-              <Button variant="contained">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+              <Button variant="contained" type="submit">
                 Submit
               </Button>
             </form>

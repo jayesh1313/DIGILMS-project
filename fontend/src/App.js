@@ -27,10 +27,14 @@ import CourseDetail from "./components/trainer/CourseDetail";
 import Authenticator from "./authenticator";
 import ManageUsers from "./components/admin/manageUsers";
 import ManageCourses from "./components/admin/manageCourses";
+
+import { Toaster } from "react-hot-toast";
+
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <Toaster position="top-right" />
         <Routes>
           <Route element={<Main />} path="main">
             <Route element={<Home />} path="home" />
@@ -42,9 +46,9 @@ function App() {
 
           <Route
             element={
-              <Authenticator>
-                <Trainer />
-              </Authenticator>
+              // <Authenticator>
+              // </Authenticator>
+              <Trainer />
             }
             path="trainer"
           >
@@ -65,9 +69,9 @@ function App() {
 
           <Route
             element={
-              <Authenticator>
-                <Admin />
-              </Authenticator>
+              <Admin />
+              // <Authenticator>
+              // </Authenticator>
             }
             path="admin"
           >

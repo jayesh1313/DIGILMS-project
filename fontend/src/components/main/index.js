@@ -6,7 +6,7 @@ const Main = () => {
     <>
       <Header></Header>
       <Outlet />
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

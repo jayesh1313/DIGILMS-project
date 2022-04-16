@@ -3,8 +3,8 @@ import "../../stylesheet/Login.css";
 import { Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
 
 export default function Trainerlogin() {
@@ -12,32 +12,41 @@ export default function Trainerlogin() {
   const navigate = useNavigate();
 
   const trainerForm = {
-    
     email: "",
     password: "",
-   
   };
 
   const submittrainer = (formdata) => {
     console.log(formdata);
 
-    fetch(url + "/trainer/add", {
+    fetch(url + "/trainer/check-login", {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "success",
+            text: "Trainer Login Successfully",
+          });
+
+          navigate("/main/browsecourse");
+        } else if (res.status === 300) {
+          Swal.fire({
+            icon: "success",
+            title: "success",
+            text: "Trainer Login Failed",
+          });
+        }
+        return res.json();
+      })
       .then((data) => {
+        sessionStorage.setItem("trainer", JSON.stringify(data));
         console.log(data);
-        Swal.fire({
-          icon: "success",
-          title: "success",
-          text: "Trainer Login Successfully",
-        }).then(() => {
-          navigate('/')
-        })
       });
   };
 
@@ -49,8 +58,6 @@ export default function Trainerlogin() {
         <Formik initialValues={trainerForm} onSubmit={submittrainer}>
           {({ values, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              
-
               <div class="trainer-box">
                 <input
                   type="email"
@@ -60,7 +67,7 @@ export default function Trainerlogin() {
                 />
                 <label>Email</label>
               </div>
-            
+
               <div class="trainer-box">
                 <input
                   type="password"
@@ -70,7 +77,7 @@ export default function Trainerlogin() {
                 />
                 <label>Password</label>
               </div>
-              
+
               <Button variant="contained" type="submit">
                 <span></span>
                 <span></span>

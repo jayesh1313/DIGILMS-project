@@ -1,7 +1,7 @@
 const mongoose = require("../connection");
 const schema = new mongoose.Schema({
   title: String,
-  duration: String,
+  duration: Number,
   pricing: String,
   trainer: { type: mongoose.Types.ObjectId, ref: "trainers" },
   description: String,
