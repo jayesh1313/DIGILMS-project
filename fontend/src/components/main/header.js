@@ -36,7 +36,7 @@ const Header = () => {
               <li>
                 <Link
                   className="nav-link px-2 text-white"
-                  to="/trainer/TrainerLogin"
+                  to="/trainer/Login"
                 >
                   Login As Trainer
                 </Link>
@@ -89,7 +89,7 @@ const Header = () => {
               <li>
                 <Link
                   className="nav-link px-2 text-white"
-                  to="/admin/AdminLogin"
+                  to="/admin/Login"
                 >
                   Login As Admin
                 </Link>
