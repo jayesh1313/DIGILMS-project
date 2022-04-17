@@ -29,6 +29,7 @@ import ManageUsers from "./components/admin/manageUsers";
 import ManageCourses from "./components/admin/manageCourses";
 
 import { Toaster } from "react-hot-toast";
+import ViewCourse from "./components/main/viewCourse";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route element={<Login />} path="Login" />
             <Route element={<Signup />} path="signup" />
             <Route element={<NotFound />} path="NotFound" />
+            <Route element={<ViewCourse />} path="viewcourse/:id" />
           </Route>
 
           <Route
@@ -82,14 +84,13 @@ function App() {
             <Route element={<ManageCourses />} path="managecourse" />
           </Route>
 
-          <Route exact element={<Navigate to="/main/home" />} path="" />
           <Route
             exact
             element={<Navigate to="/admin/manageuser" />}
             path="/admin"
           />
           <Route exact element={<Navigate to="/main/home" />} path="" />
-          <Route exact element={<Navigate to="/main/NotFound" />} path="*" />
+          {/* <Route exact element={<Navigate to="/main/NotFound" />} path="*" /> */}
         </Routes>
       </BrowserRouter>
     </div>

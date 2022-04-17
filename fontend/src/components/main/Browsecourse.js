@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import app_config from "../../config";
 
 import "../../stylesheet/BrowseCourse.css";
@@ -8,6 +9,8 @@ export default function BrowseCourse() {
 
   const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   const fetchCourses = () => {
     fetch(url + "/course/getall")
@@ -37,7 +40,12 @@ export default function BrowseCourse() {
         thumbnail,
         trainer,
       }) => (
-        <div class="book-card">
+        <div
+          class="book-card"
+          onClick={(e) => {
+            navigate("/main/viewcourse/" + _id);
+          }}
+        >
           <div class="content-wrapper">
             <img
               src={url + "/uploads/" + thumbnail}

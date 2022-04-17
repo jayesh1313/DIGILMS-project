@@ -29,6 +29,14 @@ const ManageUsers = () => {
     fetchData();
   }, []);
 
+  const deleteUser = (id) => {
+    fetch(url + "/user/delete/" + id)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   const displayData = () => {
     if (!loading) {
       return (
