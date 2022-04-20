@@ -1,9 +1,6 @@
 import React from 'react'
 // import app_config from '../../config'
-// import p1 from '../../images/p1.jpg'
-// import '../../images/p2.jpg'
-// import '../../images/s2.jpg'
-// import '../../images/p3.jpg'
+
 import '../../stylesheet/Home.css'
 export default function Home() {
 
