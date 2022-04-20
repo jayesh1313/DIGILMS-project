@@ -1,5 +1,5 @@
 import React from "react";
-import "../../stylesheet/Login.css";
+import "../../stylesheet/trainerlogin.css";
 import { Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
