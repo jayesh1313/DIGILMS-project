@@ -6,6 +6,7 @@ const schema = new mongoose.Schema({
   password: String,
   exp: Number,
   qualification: String,
+
   design: String,
   createdAt: { type: Date, default: new Date() },
   thumbnail: String,
