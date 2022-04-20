@@ -100,17 +100,7 @@ const Header = () => {
           <input type="search" className="form-control form-control-dark" placeholder="Search..." aria-label="Search"/>
         </form> */}
 
-            <div className="text-end">
-              <button type="button" className="btn btn-outline-light me-2">
-                Login
-              </button>
-              <button type="button" className="btn btn-warning">
-                Sign-up
-              </button>
-              <button type="button" className="btn btn-warning">
-                Sign-up
-              </button>
-            </div>
+         
           </div>
         </div>
       </header>
