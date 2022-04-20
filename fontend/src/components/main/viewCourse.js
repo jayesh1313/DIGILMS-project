@@ -62,7 +62,13 @@ const ViewCourse = () => {
   const handlePurchase = () => {
     console.log(courseDetail);
     sessionStorage.setItem("course", JSON.stringify(courseDetail));
-    navigate.push("/user/checkout");
+
+    fetch(url + "/user/pushupdate/" + currentUser._id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(courseDetail),
+    }).then((response) => response.json());
+    // navigate.push("/user/checkout");
   };
 
   if (courseDetail) {

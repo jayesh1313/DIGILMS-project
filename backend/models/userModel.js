@@ -4,6 +4,7 @@ const schema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
+  enrolled: Array,
   createdAt: { type: Date, default: new Date() },
 });
 
