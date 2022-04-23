@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import EnrolledCourse from "./EnrolledCourse";
 import Sidebar from "../SideBar";
-import { AccountCircle, Book, Dashboard, HowToReg } from "@mui/icons-material";
+import { AccountCircle, Book, Dashboard, HowToReg, Login } from "@mui/icons-material";
 
 const User = () => {
   const sideOptions = [
@@ -12,24 +12,14 @@ const User = () => {
       link: "/user/EnrolledCourse",
     },
     {
-      name: "Trainer Manager",
-      icon: <HowToReg />,
-      link: "/admin/TrainerManager",
+      name: "Login Student",
+      icon: <Login />,
+      link: "/main/Login",
     },
     {
-      name: "Add Course",
-      icon: <Book />,
-      link: "/admin/Addcourse",
-    },
-    {
-      name: "Manage User",
-      icon: <Book />,
-      link: "/admin/manageuser",
-    },
-    {
-      name: "Manage Courses",
-      icon: <Book />,
-      link: "/admin/managecourse",
+      name: "Register Student",
+      icon: <Login />,
+      link: "/main/signup",
     },
   ];
 
