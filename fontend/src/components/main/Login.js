@@ -3,6 +3,7 @@ import "../../stylesheet/Login.css";
 import { Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
+import'../../images/logo.png'
 import { useNavigate } from "react-router-dom";
 export default function Login() {
   const url = app_config.api_url;
@@ -56,7 +57,7 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
               <img
                 class="mb-4"
-                src="../assets/brand/bootstrap-logo.svg"
+                src="../../images/logo.png"
                 alt=""
                 width="72"
                 height="57"
