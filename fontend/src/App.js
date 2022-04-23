@@ -30,6 +30,7 @@ import ManageCourses from "./components/admin/manageCourses";
 
 import { Toaster } from "react-hot-toast";
 import ViewCourse from "./components/main/viewCourse";
+import EnrolledCourse from "./components/user/EnrolledCourse";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
 
           <Route element={<User />} path="user">
             <Route element={<UserDashboard />} path="dashboard" />
+            <Route element={<EnrolledCourse />} path="EnrolledCourse" />
           </Route>
           <Route element={<Course />} path="course">
             <Route element={<Javaa />} path="Javaa" />
