@@ -91,7 +91,7 @@ const ViewCourse = () => {
                   </div>
                   <div className="col-md-4">
                     <h4>Duration : </h4>
-                    <p>{courseDetail.description}</p>
+                    <p>{courseDetail.duration} hrs.</p>
                   </div>
                 </div>
               </CardContent>

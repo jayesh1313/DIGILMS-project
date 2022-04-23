@@ -65,7 +65,7 @@ router.delete("/delete/:id", (req, res) => {
 router.put("/pushupdate/:id", (req, res) => {
   let data = req.body;
   console.log(data);
-  Model.findByIdAndUpdate(req.params.id, { $push: data })
+  Model.findByIdAndUpdate(req.params.id, { $push: { enrolled: data } })
     .then((data) => {
       console.log("user data updated");
       res.status(200).json(data);

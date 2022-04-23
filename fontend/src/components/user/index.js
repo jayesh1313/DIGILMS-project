@@ -2,7 +2,13 @@ import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import EnrolledCourse from "./EnrolledCourse";
 import Sidebar from "../SideBar";
-import { AccountCircle, Book, Dashboard, HowToReg, Login } from "@mui/icons-material";
+import {
+  AccountCircle,
+  Book,
+  Dashboard,
+  HowToReg,
+  Login,
+} from "@mui/icons-material";
 
 const User = () => {
   const sideOptions = [
@@ -25,8 +31,9 @@ const User = () => {
 
   return (
     <>
-     <Sidebar sideOptions={sideOptions} title={"User Dashboard"}></Sidebar>
-      <Outlet />
+      <Sidebar sideOptions={sideOptions} title={"User Dashboard"}>
+        <Outlet />
+      </Sidebar>
       <Footer></Footer>
     </>
   );
