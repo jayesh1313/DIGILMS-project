@@ -32,7 +32,7 @@ const User = () => {
   return (
     <>
       <Sidebar sideOptions={sideOptions} title={"User Dashboard"}>
-        <Outlet />
+        <Outlet className="mt-5" />  
       </Sidebar>
       <Footer></Footer>
     </>

@@ -33,18 +33,22 @@ const EnrolledCourse = () => {
   }, []);
 
   const displayData = () => {
-    return userList.map(
-      ({ created, email, isAdmin, password, username, _id }, index) => (
+    return currentUser.enrolled.map(
+      ({ title, Duration, isAdmin, pricing,trainer,description, category , prerequisites , username, _id, createdAt }, index) => (
         <Accordion key={_id}>
           <AccordionSummary expandIcon={<ExpandMoreSharp />}>
             <Typography fontWeight={600}>{username}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <h5>Username : {username}</h5>
-            <h5>Email : {email}</h5>
-            <h5>Password : {password}</h5>
+            <h5> title: { title}</h5>
+            <h5>Duration : {Duration}</h5>
+            <h5>pricing : {pricing}</h5>
+            <h5>trainer : {trainer}</h5>
+            <h5>category : {category}</h5>
+            <h5>prerequisites : {prerequisites}</h5>
+            <h5>description : {description}</h5>
             <h5>isAdmin : {isAdmin ? "yes" : "no"}</h5>
-            <h5>Created At : {new Date(created).toLocaleDateString()}</h5>
+            <h5>Created At : {new Date(createdAt).toLocaleDateString()}</h5>
 
             <Fab
               onClick={(e) => setMenuPos(e.currentTarget)}
