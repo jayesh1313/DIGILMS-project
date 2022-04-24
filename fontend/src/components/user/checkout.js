@@ -1,20 +1,12 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  makeStyles,
-  TextField,
-} from "@mui/material";
+import { Button, Card, CardContent, TextField } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import clsx from "clsx";
 import { Formik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import app_config from "../config";
-import { OrderContext } from "../providers/orderContext";
-import { UserContext } from "../providers/userContext";
-import cssClasses from "./cssClasses";
+import app_config from "../../config";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -49,12 +41,9 @@ const CARD_OPTIONS = {
 
 const Checkout = (props) => {
   const styles = useStyles();
-  const gStyles = cssClasses();
 
   const [isPaymentLoading, setPaymentLoading] = useState(false);
   const url = app_config.api_url;
-  const userService = useContext(UserContext);
-  const orderService = useContext(OrderContext);
 
   const [courseDetails, setCourseDetails] = useState(
     JSON.parse(sessionStorage.getItem("course"))
@@ -77,19 +66,21 @@ const Checkout = (props) => {
   }, []);
 
   const saveOrder = () => {
-    userService
-      .purchaseCourse(currentUser._id, { enrolled: courseDetails._id })
-      .then((res) => {
-        console.log(res);
+    fetch(url + "/user/pushupdate/" + currentUser._id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ enrolled: courseDetails._id }),
+    }).then((res) => {
+      console.log(res);
 
-        Swal.fire({
-          icon: "success",
-          title: "Course Purchased",
-          text: "You have Purchased sucessfully",
-        }).then((d) => {
-          navigate("/user/managecourses");
-        });
+      Swal.fire({
+        icon: "success",
+        title: "Course Purchased",
+        text: "You have Purchased sucessfully",
+      }).then((d) => {
+        navigate.push("/user/managecourse");
       });
+    });
   };
 
   const getIntent = () => {
@@ -118,7 +109,7 @@ const Checkout = (props) => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: userService.currentUser.fullname,
+          name: currentUser.name,
         },
       },
     });
@@ -141,7 +132,7 @@ const Checkout = (props) => {
 
   return (
     <div className="col-md-11 mx-auto">
-      <Card className={clsx(styles, gStyles)}>
+      <Card className={clsx(styles)}>
         <CardContent>
           <h2 className="text-center">Order Checkout</h2>
           <hr />

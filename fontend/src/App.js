@@ -31,69 +31,79 @@ import ManageCourses from "./components/admin/manageCourses";
 import { Toaster } from "react-hot-toast";
 import ViewCourse from "./components/main/viewCourse";
 import EnrolledCourse from "./components/user/EnrolledCourse";
+import Checkout from "./components/user/checkout";
+
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 function App() {
+  const stripe = loadStripe("pk_test_Vmvhpm2TASsGcgF4RcyQfkF000KwucQJR1");
+
   return (
     <div>
       <BrowserRouter>
         <Toaster position="top-right" />
-        <Routes>
-          <Route element={<Main />} path="main">
-            <Route element={<Home />} path="home" />
-            <Route element={<BrowseCourse />} path="browsecourse" />
-            <Route element={<Login />} path="Login" />
-            <Route element={<Signup />} path="signup" />
-            <Route element={<NotFound />} path="NotFound" />
-            <Route element={<ViewCourse />} path="viewcourse/:id" />
-          </Route>
+        <Elements stripe={stripe}>
+          <Routes>
+            <Route element={<Main />} path="main">
+              <Route element={<Home />} path="home" />
+              <Route element={<BrowseCourse />} path="browsecourse" />
+              <Route element={<Login />} path="Login" />
+              <Route element={<Signup />} path="signup" />
+              <Route element={<NotFound />} path="NotFound" />
+              <Route element={<ViewCourse />} path="viewcourse/:id" />
+            </Route>
 
-          <Route
-            element={
-              // <Authenticator>
-              // </Authenticator>
-              <Trainer />
-            }
-            path="trainer"
-          >
-            <Route element={<Register />} path="Register" />
-            <Route element={<Trainerlogin />} path="login" />
-            <Route element={<BrowseTrainer />} path="BrowseTrainer" />
-            <Route element={<TrainerDashboard />} path="dashboard" />
-            <Route element={<Addcourse />} path="Addcourse" />
-            <Route element={<CourseDetail />} path="CourseDetail" />
-          </Route>
+            <Route
+              element={
+                // <Authenticator>
+                // </Authenticator>
+                <Trainer />
+              }
+              path="trainer"
+            >
+              <Route element={<Register />} path="Register" />
+              <Route element={<Trainerlogin />} path="login" />
+              <Route element={<BrowseTrainer />} path="BrowseTrainer" />
+              <Route element={<TrainerDashboard />} path="dashboard" />
+              <Route element={<Addcourse />} path="Addcourse" />
+              <Route element={<CourseDetail />} path="CourseDetail" />
+            </Route>
 
-          <Route element={<User />} path="user">
-            <Route element={<UserDashboard />} path="dashboard" />
-            <Route element={<EnrolledCourse />} path="EnrolledCourse" />
-          </Route>
-          <Route element={<Course />} path="course">
-            <Route element={<Javaa />} path="Javaa" />
-          </Route>
+            <Route element={<User />} path="user">
+              <Route element={<UserDashboard />} path="dashboard" />
+              <Route element={<EnrolledCourse />} path="EnrolledCourse" />
+              <Route element={<Checkout />} path="checkout" />
+            </Route>
 
-          <Route
-            element={
-              <Admin />
-              // <Authenticator>
-              // </Authenticator>
-            }
-            path="admin"
-          >
-            <Route element={<AdminDashboard />} path="dashboard" />
-            <Route element={<TrainerManager />} path="TrainerManager" />
-            <Route element={<AdminLogin />} path="login" />
-            <Route element={<ManageUsers />} path="manageuser" />
-            <Route element={<ManageCourses />} path="managecourse" />
-          </Route>
+            <Route element={<Course />} path="course">
+              <Route element={<Javaa />} path="Javaa" />
+            </Route>
 
-          <Route
-            exact
-            element={<Navigate to="/admin/manageuser" />}
-            path="/admin"
-          />
-          <Route exact element={<Navigate to="/main/home" />} path="" />
-          {/* <Route exact element={<Navigate to="/main/NotFound" />} path="*" /> */}
-        </Routes>
+            <Route
+              element={
+                <Admin />
+                // <Authenticator>
+                // </Authenticator>
+              }
+              path="admin"
+            >
+              <Route element={<AdminDashboard />} path="dashboard" />
+              <Route element={<TrainerManager />} path="TrainerManager" />
+              <Route element={<AdminLogin />} path="login" />
+              <Route element={<ManageUsers />} path="manageuser" />
+              <Route element={<ManageCourses />} path="managecourse" />
+            </Route>
+
+            <Route
+              exact
+              element={<Navigate to="/admin/manageuser" />}
+              path="/admin"
+            />
+            <Route exact element={<Navigate to="/main/home" />} path="" />
+            {/* <Route exact element={<Navigate to="/main/NotFound" />} path="*" /> */}
+          </Routes>
+        </Elements>
       </BrowserRouter>
     </div>
   );
