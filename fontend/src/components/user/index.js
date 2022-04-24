@@ -8,7 +8,10 @@ import {
   Dashboard,
   HowToReg,
   Login,
+  Person,
 } from "@mui/icons-material";
+import Profile from "../Profile";
+import { AvatarGroup } from "@mui/material";
 
 const User = () => {
   const sideOptions = [
@@ -26,6 +29,10 @@ const User = () => {
       name: "Register Student",
       icon: <Login />,
       link: "/main/signup",
+    },{
+      name: "Student Profile",
+      icon: <Person />,
+      link: "./Profile",
     },
   ];
 

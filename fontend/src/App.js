@@ -35,6 +35,7 @@ import Checkout from "./components/user/checkout";
 
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Profile from "./components/Profile";
 
 function App() {
   const stripe = loadStripe("pk_test_Vmvhpm2TASsGcgF4RcyQfkF000KwucQJR1");
@@ -74,6 +75,7 @@ function App() {
               <Route element={<UserDashboard />} path="dashboard" />
               <Route element={<EnrolledCourse />} path="EnrolledCourse" />
               <Route element={<Checkout />} path="checkout" />
+              <Route element={<Profile />} path="Profile" />
             </Route>
 
             <Route element={<Course />} path="course">
