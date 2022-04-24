@@ -36,8 +36,8 @@ export default function Login() {
           navigate("/main/browsecourse");
         } else if (res.status === 300) {
           Swal.fire({
-            icon: "success",
-            title: "success",
+            icon: "error",
+            title: "oops",
             text: "User Login Failed",
           });
         }
