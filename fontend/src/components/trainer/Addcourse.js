@@ -202,7 +202,13 @@ const AddCourse = () => {
     const formData = new FormData();
     formData.append("file", file);
     console.log(file);
-    courseService.uploadFile(formData).then((res) => console.log(res));
+    fetch(url + "/util/uploadfile", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => console.log(res));
 
     console.log(prop);
 

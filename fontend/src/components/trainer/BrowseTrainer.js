@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import app_config from "../../config";
-import "../../stylesheet/BrowseTrainer.css";
+// import "../../stylesheet/BrowseTrainer.css";
 export default function BrowseTrainer() {
   const url = app_config.api_url;
 

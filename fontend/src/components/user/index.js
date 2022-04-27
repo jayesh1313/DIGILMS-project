@@ -29,7 +29,8 @@ const User = () => {
       name: "Register Student",
       icon: <Login />,
       link: "/main/signup",
-    },{
+    },
+    {
       name: "Student Profile",
       icon: <Person />,
       link: "./Profile",
@@ -39,9 +40,9 @@ const User = () => {
   return (
     <>
       <Sidebar sideOptions={sideOptions} title={"User Dashboard"}>
-        <Outlet className="mt-5" />  
+        <Outlet />
       </Sidebar>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

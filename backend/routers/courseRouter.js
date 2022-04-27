@@ -17,6 +17,7 @@ router.post("/add", (req, res) => {
 router.get("/getbyid/:id", (req, res) => {
   Model.findById(req.params.id)
     .then((data) => {
+      console.log(data);
       console.log("user data saved!!");
       res.status(200).json(data);
     })

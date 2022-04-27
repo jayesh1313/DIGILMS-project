@@ -1,6 +1,6 @@
 const api_config = {
   db_url:
-    "mongodb+srv://jayesh1313:Jashu1313@mystorage.ezvnt.mongodb.net/myDatabase?retryWrites=true&w=majority",
+    "mongodb+srv://mmm:mmm@cluster0.gvyon.mongodb.net/mernmttf1230?retryWrites=true&w=majority",
   stripe_sk: "sk_test_4ypbMh4aR9gRNnUkQCwgOyCT00rSoAbXzZ",
 };
 

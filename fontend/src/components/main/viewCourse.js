@@ -100,7 +100,7 @@ const ViewCourse = () => {
           <div className="col-md-4">
             <Card>
               <CardContent>
-                <h2>Rs. 4500/-</h2>
+                <h2>Rs. {courseDetail.pricing}/-</h2>
                 <Button
                   variant="contained"
                   color="secondary"

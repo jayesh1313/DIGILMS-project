@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import app_config from "../../config";
 
 const EnrolledCourse = () => {
@@ -27,6 +28,7 @@ const EnrolledCourse = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     // fetchData();
@@ -34,13 +36,28 @@ const EnrolledCourse = () => {
 
   const displayData = () => {
     return currentUser.enrolled.map(
-      ({ title, Duration, isAdmin, pricing,trainer,description, category , prerequisites , username, _id, createdAt }, index) => (
+      (
+        {
+          title,
+          Duration,
+          isAdmin,
+          pricing,
+          trainer,
+          description,
+          category,
+          prerequisites,
+          username,
+          _id,
+          createdAt,
+        },
+        index
+      ) => (
         <Accordion key={_id}>
           <AccordionSummary expandIcon={<ExpandMoreSharp />}>
             <Typography fontWeight={600}>{username}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <h5> title: { title}</h5>
+            <h5> title: {title}</h5>
             <h5>Duration : {Duration}</h5>
             <h5>pricing : {pricing}</h5>
             <h5>trainer : {trainer}</h5>
@@ -51,11 +68,11 @@ const EnrolledCourse = () => {
             <h5>Created At : {new Date(createdAt).toLocaleDateString()}</h5>
 
             <Fab
-              onClick={(e) => setMenuPos(e.currentTarget)}
+              onClick={(e) => navigate("/user/study/" + _id)}
               variant="extended"
               sx={{ background: "red", color: "white" }}
             >
-              <Delete /> Delete
+              <Edit /> View Course
             </Fab>
           </AccordionDetails>
         </Accordion>
@@ -64,7 +81,7 @@ const EnrolledCourse = () => {
   };
 
   return (
-    <Container>
+    <Container sx={{ marginTop: "5rem" }}>
       <Toaster />
 
       <Card>

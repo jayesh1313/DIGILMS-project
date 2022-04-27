@@ -80,9 +80,9 @@ html, body {
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
 }
-.card:nth-child(1):before {
+/* .card:nth-child(1):before {
   background-image: url(https://media-exp1.licdn.com/dms/image/C4E03AQFreKcChT_QzA/profile-displayphoto-shrink_400_400/0/1631006877285?e=1652313600&v=beta&t=dgQz7Cq0wGYSGpXjAvSmV902ykzXVnPym1u4KWylvY8);
-}
+} */
 .card:nth-child(2):before {
   background-image: url(https://images.unsplash.com/photo-1533903345306-15d1c30952de?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
 }

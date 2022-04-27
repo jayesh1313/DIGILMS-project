@@ -78,7 +78,8 @@ const Checkout = (props) => {
         title: "Course Purchased",
         text: "You have Purchased sucessfully",
       }).then((d) => {
-        navigate.push("/user/managecourse");
+        sessionStorage.setItem("user", JSON.stringify(d));
+        navigate("/user/EnrolledCourse");
       });
     });
   };
@@ -87,7 +88,7 @@ const Checkout = (props) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: courseDetails.price * 100 }),
+      body: JSON.stringify({ amount: courseDetails.pricing * 100 }),
     };
     return fetch(url + "/create-payment-intent", requestOptions).then(
       (response) => response.json()
@@ -142,12 +143,12 @@ const Checkout = (props) => {
                 <h3>Course Details</h3>
                 <hr />
 
-                <div className="avatar">
+                {/* <div>
                   <img
                     className="img-fluid"
                     src={`${url}/${courseDetails.avatar}`}
                   />
-                </div>
+                </div> */}
 
                 <p className="detail-name mt-5">Course Name :</p>
                 <p className="detail">{courseDetails.name}</p>
@@ -157,7 +158,7 @@ const Checkout = (props) => {
 
                 <p className="detail-name mt-3">Price :</p>
                 <p className="detail-price" style={{ fontSize: "3rem" }}>
-                  {courseDetails.price}
+                  {courseDetails.pricing}
                 </p>
               </div>
             </div>
@@ -215,7 +216,7 @@ const Checkout = (props) => {
                 >
                   {isPaymentLoading
                     ? "Loading..."
-                    : `Pay ₹${courseDetails.price}/-`}
+                    : `Pay ₹${courseDetails.pricing}/-`}
                 </Button>
               </div>
             </form>
