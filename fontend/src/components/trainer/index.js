@@ -9,11 +9,6 @@ import { Slider } from "@mui/material";
 const Trainer = () => {
   const sideOptions = [
     {
-      name: "Dashboard",
-      icon: <Dashboard />,
-      link: "/admin/dashboard",
-    },
-    {
       name: "Trainer Manager",
       icon: <HowToReg />,
       link: "/trainer/BrowseTrainer",

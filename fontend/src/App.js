@@ -37,6 +37,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Profile from "./components/Profile";
 import Study from "./components/user/study";
+import Chat from "./components/chat";
 
 function App() {
   const stripe = loadStripe("pk_test_Vmvhpm2TASsGcgF4RcyQfkF000KwucQJR1");
@@ -58,9 +59,9 @@ function App() {
 
             <Route
               element={
-                // <Authenticator>
-                // </Authenticator>
-                <Trainer />
+                <Authenticator>
+                  <Trainer />
+                </Authenticator>
               }
               path="trainer"
             >
@@ -79,16 +80,12 @@ function App() {
               <Route element={<Profile />} path="Profile" />
               <Route element={<Study />} path="study/:id" />
             </Route>
-
-            <Route element={<Course />} path="course">
-              <Route element={<Javaa />} path="Javaa" />
-            </Route>
-
+            <Route element={<Chat />} path="chat" />
             <Route
               element={
-                <Admin />
-                // <Authenticator>
-                // </Authenticator>
+                <Authenticator>
+                  <Admin />
+                </Authenticator>
               }
               path="admin"
             >

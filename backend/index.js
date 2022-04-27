@@ -9,6 +9,29 @@ const trainerRouter = require("./routers/trainerRouter");
 const courseRouter = require("./routers/courseRouter");
 const utilRouter = require("./routers/util");
 
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+
+// create a new server and connect it with express
+const httpServer = createServer(app);
+
+// create a socket.io instance and allow cors
+const io = new Server(httpServer, {
+  cors: { origin: ["http://localhost:3000"] },
+});
+
+// receive the connection event sent by client
+io.on("connection", (socket) => {
+  console.log("client connected");
+
+  socket.on("sendmsg", (data) => {
+    console.log(data);
+
+    data.sent = false;
+    socket.broadcast.emit("recmsg", data);
+  });
+});
+
 app.use(
   cors({
     origin: ["http://localhost:3000"],
@@ -34,6 +57,6 @@ app.use("/trainer", trainerRouter);
 app.use("/course", courseRouter);
 app.use("/util", utilRouter);
 
-app.listen(port, () => {
+httpServer.listen(port, () => {
   console.log("server started");
 });
