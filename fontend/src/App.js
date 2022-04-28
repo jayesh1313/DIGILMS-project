@@ -71,6 +71,7 @@ function App() {
               <Route element={<TrainerDashboard />} path="dashboard" />
               <Route element={<Addcourse />} path="Addcourse" />
               <Route element={<CourseDetail />} path="CourseDetail" />
+              <Route element={<Chat />} path="chat" />
             </Route>
 
             <Route element={<User />} path="user">
@@ -79,8 +80,8 @@ function App() {
               <Route element={<Checkout />} path="checkout" />
               <Route element={<Profile />} path="Profile" />
               <Route element={<Study />} path="study/:id" />
+              <Route element={<Chat />} path="chat" />
             </Route>
-            <Route element={<Chat />} path="chat" />
             <Route
               element={
                 <Authenticator>

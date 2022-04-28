@@ -28,6 +28,7 @@ const EnrolledCourse = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
+  console.log(currentUser);
   const navigate = useNavigate();
 
   useEffect(() => {

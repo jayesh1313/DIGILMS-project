@@ -13,6 +13,9 @@ const Study = () => {
   const [course, setCourse] = useState({});
   const [loading, setLoading] = useState(true);
   const [currentLecture, setCurrentLecture] = useState({});
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
   const url = app_config.api_url;
 
   const { id } = useParams();
@@ -75,6 +78,23 @@ const Study = () => {
     }
   };
 
+  const capturePlay = (e) => {
+    console.log("hehe");
+    if (e.target.duration / e.target.currentTime > 0.8) {
+      fetch(url + "/user/update/" + currentUser._id, {
+        method: "PUT",
+        body: JSON.stringify({ points: currentUser.points + 50 }),
+      }).then((res) => {
+        if (res.status === 200) {
+          console.log("points Added");
+          res.json().then((data) => {
+            sessionStorage.setItem("user", JSON.stringify(data));
+          });
+        }
+      });
+    }
+  };
+
   const displayLecture = () => {
     if (!loading)
       return (
@@ -87,7 +107,14 @@ const Study = () => {
 
   const renderVideo = () => {
     if (video) {
-      return <video width={"100%"} src={url + video} controls></video>;
+      return (
+        <video
+          onPlaying={capturePlay}
+          width={"100%"}
+          src={url + "/uploads/" + video}
+          controls
+        ></video>
+      );
     }
   };
 

@@ -38,8 +38,21 @@ router.get("/getbyid/:id", (req, res) => {
     });
 });
 
+router.get("/getbymail/:mail", (req, res) => {
+  Model.findOne({ email: req.params.mail })
+    .populate("enrolled")
+    .then((data) => {
+      console.log("user data saved!!");
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+
 router.put("/update/:id", (req, res) => {
-  Model.findByIdAndUpdate(req.params.id, req.body)
+  Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((data) => {
       console.log("user data saved!!");
       res.status(200).json(data);
@@ -63,6 +76,7 @@ router.delete("/delete/:id", (req, res) => {
 });
 
 router.put("/pushupdate/:id", (req, res) => {
+  console.log(req.params.id);
   let data = req.body;
   console.log(data);
   Model.findByIdAndUpdate(req.params.id, { $push: data }, { new: true })
@@ -77,7 +91,7 @@ router.put("/pushupdate/:id", (req, res) => {
 });
 
 router.post("/check-login", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   const formdata = req.body;
 
@@ -85,6 +99,7 @@ router.post("/check-login", (req, res) => {
     .populate("enrolled")
     .then((data) => {
       if (data) {
+        console.log(data);
         if (data.password === formdata.password) {
           res.status(200).json(data);
         } else {

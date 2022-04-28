@@ -10,6 +10,7 @@ import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import {
   Box,
+  Button,
   CssBaseline,
   Divider,
   IconButton,
@@ -20,8 +21,8 @@ import {
   Typography,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -90,11 +91,15 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Sidebar({ children, sideOptions, title }) {
+export default function Sidebar({ children, sideOptions, title, points }) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
 
   const navigate = useNavigate();
+
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -102,6 +107,18 @@ export default function Sidebar({ children, sideOptions, title }) {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const location = useLocation();
+  console.log(location.pathname);
+  // useEffect(() => {
+  // }, []);
+
+  const displayPoints = () => {
+    if (location.pathname.includes("user")) {
+      console.log("in user");
+      return <Button color="inherit">Points : {currentUser.points}</Button>;
+    }
   };
 
   return (
@@ -124,6 +141,8 @@ export default function Sidebar({ children, sideOptions, title }) {
           <Typography variant="h6" noWrap component="div">
             {title}
           </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          {displayPoints()}
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -158,7 +177,7 @@ export default function Sidebar({ children, sideOptions, title }) {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="div" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         {children}
       </Box>

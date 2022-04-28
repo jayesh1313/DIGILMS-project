@@ -79,7 +79,7 @@ const Checkout = (props) => {
         text: "You have Purchased sucessfully",
       }).then((d) => {
         sessionStorage.setItem("user", JSON.stringify(d));
-        navigate("/user/EnrolledCourse");
+        // navigate("/user/EnrolledCourse");
       });
     });
   };

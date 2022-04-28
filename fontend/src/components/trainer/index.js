@@ -1,7 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../SideBar";
 
-import { AccountCircle, Book, Dashboard, HowToReg } from "@mui/icons-material";
+import {
+  AccountCircle,
+  Book,
+  Chat,
+  Dashboard,
+  HowToReg,
+} from "@mui/icons-material";
 
 import Footer from "./Footer";
 import Header from "./Header";
@@ -17,6 +23,11 @@ const Trainer = () => {
       name: "Add Course",
       icon: <Book />,
       link: "/trainer/Addcourse",
+    },
+    {
+      name: "Chat",
+      icon: <Chat  />,
+      link: "/trainer/chat",
     },
   ];
   return (

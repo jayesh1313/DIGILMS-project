@@ -77,11 +77,15 @@ const Checkout = (props) => {
   }, []);
 
   const saveOrder = () => {
-    userService
-      .purchaseCourse(currentUser._id, { enrolled: courseDetails._id })
-      .then((res) => {
-        console.log(res);
-
+    fetch(url + "/user/pushupdate/" + currentUser._id, {
+      method: "PUT",
+      body: JSON.stringify({ enrolled: courseDetails._id }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      console.log(res);
+      if (res.status === 200)
         Swal.fire({
           icon: "success",
           title: "Course Purchased",
@@ -89,7 +93,7 @@ const Checkout = (props) => {
         }).then((d) => {
           navigate("/user/managecourses");
         });
-      });
+    });
   };
 
   const getIntent = () => {
@@ -118,7 +122,7 @@ const Checkout = (props) => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: userService.currentUser.fullname,
+          name: currentUser.fullname,
         },
       },
     });

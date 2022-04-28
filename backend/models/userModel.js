@@ -4,7 +4,8 @@ const schema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
-  enrolled: Array,
+  enrolled: [{ type: mongoose.Types.ObjectId, ref: "courses" }],
+  points: { type: Number, default: 0 },
   createdAt: { type: Date, default: new Date() },
 });
 

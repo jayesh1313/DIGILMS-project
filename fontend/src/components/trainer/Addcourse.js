@@ -200,15 +200,12 @@ const AddCourse = () => {
 
   const handleFileUpload = (prop, file, sect_i, lect_i) => {
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("myfile", file);
     console.log(file);
     fetch(url + "/util/uploadfile", {
       method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => console.log(res));
+      body: formData,
+    }).then((res) => console.log(res.status));
 
     console.log(prop);
 
