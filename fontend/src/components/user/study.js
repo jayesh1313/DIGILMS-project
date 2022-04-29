@@ -119,7 +119,7 @@ const Study = () => {
   };
 
   return (
-    <div>
+    <div className="jksd" style={{ height: "100%" }}>
       <h1>Study Room</h1>
       <hr />
 

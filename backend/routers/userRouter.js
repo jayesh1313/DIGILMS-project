@@ -53,6 +53,7 @@ router.get("/getbymail/:mail", (req, res) => {
 
 router.put("/update/:id", (req, res) => {
   Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .populate("enrolled")
     .then((data) => {
       console.log("user data saved!!");
       res.status(200).json(data);
@@ -97,6 +98,13 @@ router.post("/check-login", (req, res) => {
 
   Model.findOne({ email: formdata.email })
     .populate("enrolled")
+    .populate({
+      path: "enrolled",
+      populate: {
+        path: "trainer",
+        model: "trainers",
+      },
+    })
     .then((data) => {
       if (data) {
         console.log(data);

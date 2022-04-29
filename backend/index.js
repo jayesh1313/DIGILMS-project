@@ -12,6 +12,8 @@ const utilRouter = require("./routers/util");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 
+let trainers = {};
+
 // create a new server and connect it with express
 const httpServer = createServer(app);
 
@@ -24,11 +26,27 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
   console.log("client connected");
 
-  socket.on("sendmsg", (data) => {
-    console.log(data);
+  socket.on("addtrainer", (id) => {
+    trainers[id] = socket.id;
+    // console.log(trainers);
+  });
 
+  socket.on("checktrainer", (id) => {
+    socket.emit("checktrainerfromserver", {
+      status: "online",
+      socketId: trainers[id],
+    });
+  });
+
+  socket.on("sendstudent", (data) => {
+    // console.log(data);
     data.sent = false;
     socket.broadcast.emit("recmsg", data);
+  });
+  socket.on("sendmsg", (data) => {
+    // console.log(data);
+    data.sent = false;
+    socket.to(data.socketId).emit("recmsg", data);
   });
 });
 

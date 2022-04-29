@@ -21,16 +21,6 @@ const User = () => {
       link: "/user/EnrolledCourse",
     },
     {
-      name: "Login Student",
-      icon: <Login />,
-      link: "/main/Login",
-    },
-    {
-      name: "Register Student",
-      icon: <Login />,
-      link: "/main/signup",
-    },
-    {
       name: "Student Profile",
       icon: <Person />,
       link: "./Profile",

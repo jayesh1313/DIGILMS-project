@@ -1,4 +1,11 @@
-import { Delete, Edit, ExpandMore, ExpandMoreSharp } from "@mui/icons-material";
+import {
+  Chat,
+  Delete,
+  Edit,
+  ExpandMore,
+  ExpandMoreSharp,
+  ViewAgenda,
+} from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
@@ -7,7 +14,9 @@ import {
   Card,
   CardContent,
   Container,
+  Divider,
   Fab,
+  Grid,
   Menu,
   MenuItem,
   Typography,
@@ -50,30 +59,69 @@ const EnrolledCourse = () => {
           username,
           _id,
           createdAt,
+          thumbnail,
         },
         index
       ) => (
         <Accordion key={_id}>
           <AccordionSummary expandIcon={<ExpandMoreSharp />}>
-            <Typography fontWeight={600}>{username}</Typography>
+            <Typography fontWeight={600}>{title}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <h5> title: {title}</h5>
-            <h5>Duration : {Duration}</h5>
-            <h5>pricing : {pricing}</h5>
-            <h5>trainer : {trainer}</h5>
-            <h5>category : {category}</h5>
-            <h5>prerequisites : {prerequisites}</h5>
-            <h5>description : {description}</h5>
-            <h5>isAdmin : {isAdmin ? "yes" : "no"}</h5>
-            <h5>Created At : {new Date(createdAt).toLocaleDateString()}</h5>
+            <Grid container spacing={10}>
+              <Grid item md={6}>
+                <h3>Course Details</h3>
+                <hr className="mb-5" />
+                <Grid container spacing={5}>
+                  <Grid item xs={4}>
+                    <img
+                      className="w-100"
+                      src={url + "/uploads/" + thumbnail}
+                      alt=""
+                    />
+                  </Grid>
+                  <Grid item xs={8}>
+                    <h4>{title}</h4>
+                    <h4>{description}</h4>
+                    in <h4>{category}</h4>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item md={6}>
+                <h3>Trainer Details</h3>
+                <hr className="mb-5" />
+                <Grid container spacing={5}>
+                  <Grid item xs={4}>
+                    {/* <img
+                      className="w-100"
+                      src={url + "/uploads/" + thumbnail}
+                      alt=""
+                    /> */}
+                  </Grid>
+                  <Grid item xs={8}>
+                    <h4>Name : {trainer.fullname}</h4>
+                    <h4> Qualification : {trainer.qualification}</h4>
+                    <h4> Phone : {trainer.phone}</h4>
+                    <h4> Experience : {trainer.exp}</h4>
+                    <Fab
+                      color="secondary"
+                      sx={{ mt: 3 }}
+                      variant="extended"
+                      onClick={(e) => navigate("/user/chat/" + trainer._id)}
+                    >
+                      <Chat /> &nbsp; Chat
+                    </Fab>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
 
             <Fab
+              color="primary"
+              sx={{ mt: 3 }}
               onClick={(e) => navigate("/user/study/" + _id)}
-              variant="extended"
-              sx={{ background: "red", color: "white" }}
             >
-              <Edit /> View Course
+              <ViewAgenda />
             </Fab>
           </AccordionDetails>
         </Accordion>
@@ -82,13 +130,17 @@ const EnrolledCourse = () => {
   };
 
   return (
-    <Container sx={{ marginTop: "5rem" }}>
-      <Toaster />
-
-      <Card>
-        <CardContent>{displayData()}</CardContent>
-      </Card>
-    </Container>
+    <div className="enrolled-course">
+      <Container>
+        <Typography className="text-white" variant="h3">
+          Your Enrolled Courses
+        </Typography>
+        <Divider sx={{ mb: 5, color: "#fff" }} />
+        <Card>
+          <CardContent>{displayData()}</CardContent>
+        </Card>
+      </Container>
+    </div>
   );
 };
 

@@ -1,4 +1,14 @@
-import { Button, Card, CardContent, TextField } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import clsx from "clsx";
@@ -52,6 +62,8 @@ const Checkout = (props) => {
     JSON.parse(sessionStorage.getItem("user"))
   );
   const [userForm, setUserForm] = useState({});
+
+  const [payMethod, setPayMethod] = useState("card");
 
   const stripe = useStripe();
   const elements = useElements();
@@ -131,6 +143,62 @@ const Checkout = (props) => {
     }
   };
 
+  const payWithPoints = () => {
+    fetch(url + "/user/update/" + currentUser._id, {
+      method: "PUT",
+      body: JSON.stringify({
+        points: currentUser.points - courseDetails.price,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          sessionStorage.setItem("user", JSON.stringify(data));
+          saveOrder();
+        });
+      }
+    });
+  };
+
+  const displayPayment = () => {
+    if (payMethod === "card") {
+      return (
+        <form onSubmit={payMoney}>
+          <div>
+            <CardElement className="card" options={CARD_OPTIONS} />
+
+            <Button
+              disabled={isPaymentLoading}
+              className="mt-5 w-100"
+              variant="contained"
+              color="secondary"
+              type="submit"
+            >
+              {isPaymentLoading
+                ? "Loading..."
+                : `Pay ₹${courseDetails.pricing}/-`}
+            </Button>
+          </div>
+        </form>
+      );
+    } else if (payMethod === "points") {
+      return (
+        <Button
+          disabled={currentUser.points < courseDetails.pricing}
+          color="success"
+          variant="contained"
+          onClick={payWithPoints}
+        >
+          {currentUser.points < courseDetails.pricing
+            ? "Not Enough Points"
+            : "Purchase using " + courseDetails.pricing + " points?"}
+        </Button>
+      );
+    }
+  };
+
   return (
     <div className="col-md-11 mx-auto">
       <Card className={clsx(styles)}>
@@ -203,23 +271,30 @@ const Checkout = (props) => {
           </div>
 
           <div className="card-details mt-5 col-md-6 mx-auto">
-            <form onSubmit={payMoney}>
-              <div>
-                <CardElement className="card" options={CARD_OPTIONS} />
-
-                <Button
-                  disabled={isPaymentLoading}
-                  className="mt-5 w-100"
-                  variant="contained"
-                  color="secondary"
-                  type="submit"
-                >
-                  {isPaymentLoading
-                    ? "Loading..."
-                    : `Pay ₹${courseDetails.pricing}/-`}
-                </Button>
-              </div>
-            </form>
+            <FormControl>
+              <FormLabel id="demo-radio-buttons-group-label">
+                Pay with :{" "}
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue={payMethod}
+                name="radio-buttons-group"
+                onChange={(e) => setPayMethod(e.target.value)}
+              >
+                <FormControlLabel
+                  value="card"
+                  control={<Radio />}
+                  label="Debit Card"
+                />
+                <FormControlLabel
+                  value="points"
+                  control={<Radio />}
+                  label="Points"
+                />
+              </RadioGroup>
+            </FormControl>
+            <br />
+            {displayPayment()}
           </div>
         </CardContent>
       </Card>
