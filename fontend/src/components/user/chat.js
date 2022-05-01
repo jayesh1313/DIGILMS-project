@@ -51,7 +51,7 @@ const Chat = () => {
   });
 
   socket.on("checktrainerfromserver", (data) => {
-    // console.log(data);
+    console.log(data);
     setTrainerOnline(data.status);
     setTrainerSocketId(data.socketId);
   });

@@ -81,6 +81,14 @@ router.put("/pushupdate/:id", (req, res) => {
   let data = req.body;
   console.log(data);
   Model.findByIdAndUpdate(req.params.id, { $push: data }, { new: true })
+    .populate("enrolled")
+    .populate({
+      path: "enrolled",
+      populate: {
+        path: "trainer",
+        model: "trainers",
+      },
+    })
     .then((data) => {
       console.log("user data updated");
       res.status(200).json(data);

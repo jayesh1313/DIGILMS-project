@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("recmsg", data);
   });
   socket.on("sendmsg", (data) => {
-    // console.log(data);
+    console.log(data);
     data.sent = false;
     socket.to(data.socketId).emit("recmsg", data);
   });

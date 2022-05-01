@@ -89,7 +89,8 @@ const Checkout = (props) => {
         icon: "success",
         title: "Course Purchased",
         text: "You have Purchased sucessfully",
-      }).then((d) => {
+      });
+      res.json().then((d) => {
         sessionStorage.setItem("user", JSON.stringify(d));
         navigate("/user/EnrolledCourse");
       });
