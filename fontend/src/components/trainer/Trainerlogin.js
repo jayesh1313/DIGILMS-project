@@ -25,28 +25,31 @@ export default function Trainerlogin() {
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          Swal.fire({
-            icon: "success",
-            title: "success",
-            text: "Trainer Login Successfully",
-          });
-        } else if (res.status === 300) {
-          Swal.fire({
-            icon: "success",
-            title: "success",
-            text: "Trainer Login Failed",
-          });
-        }
-        return res.json();
-      })
-      .then((data) => {
-        sessionStorage.setItem("trainer", JSON.stringify(data));
-        console.log(data);
-        navigate("/trainer/chat");
-      });
+    }).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: "success",
+          text: "Trainer Login Successfully",
+        });
+        res.json().then((data) => {
+          sessionStorage.setItem("trainer", JSON.stringify(data));
+          console.log(data);
+          if (data.isAdmin) {
+            navigate("/admin/addtrainer");
+            return;
+          }
+          navigate("/trainer/chat");
+        });
+      } else if (res.status === 300) {
+        Swal.fire({
+          icon: "error",
+          title: "OOps!!",
+          text: "Trainer Login Failed",
+        });
+      }
+      return res.json();
+    });
   };
 
   return (

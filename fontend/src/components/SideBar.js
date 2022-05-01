@@ -171,7 +171,7 @@ export default function Sidebar({ children, sideOptions, title, points }) {
       icon: <AccountCircle />,
       click: () => {
         sessionStorage.removeItem("user");
-        navigate("/trainer/trainerlogin");
+        navigate("/main/trainerlogin");
       },
     },
   ];

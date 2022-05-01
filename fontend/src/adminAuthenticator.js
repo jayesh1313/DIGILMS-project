@@ -17,9 +17,12 @@ const AdminAuthenticator = ({ children }) => {
       return <Navigate to="/main/trainerlogin" />;
     }
   } else {
-    return <Navigate to="/main/login" />;
+    Swal.fire({
+      icon: "error",
+      title: "You should be logged in as Admin",
+    });
+    return <Navigate to="/main/trainerlogin" />;
   }
-
   return children;
 };
 
