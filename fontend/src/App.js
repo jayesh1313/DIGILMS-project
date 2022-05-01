@@ -40,6 +40,7 @@ import TrainerChat from "./components/trainer/trainerChat";
 import Chat from "./components/user/chat";
 import TrainerAuthenticator from "./trainerAuthenticator";
 import AddTrainer from "./components/admin/addTrainer";
+import AdminAuthenticator from "./adminAuthenticator";
 
 function App() {
   const stripe = loadStripe("pk_test_Vmvhpm2TASsGcgF4RcyQfkF000KwucQJR1");
@@ -84,9 +85,9 @@ function App() {
           </Route>
           <Route
             element={
-              <TrainerAuthenticator>
+              <AdminAuthenticator>
                 <Admin />
-              </TrainerAuthenticator>
+              </AdminAuthenticator>
             }
             path="admin"
           >
