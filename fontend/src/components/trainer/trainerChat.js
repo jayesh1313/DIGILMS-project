@@ -32,6 +32,7 @@ const TrainerChat = () => {
     // console.log(data);
 
     // to add newly recieved message on screen
+    console.log(data);
     const newList = [...msgList, data];
     setMsgList(newList);
   });

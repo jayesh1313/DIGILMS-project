@@ -2,7 +2,13 @@ import { Outlet } from "react-router-dom";
 import Header from "./header";
 import Footer from "./Footer";
 import Sidebar from "../SideBar";
-import { AccountCircle, Book, Dashboard, HowToReg } from "@mui/icons-material";
+import {
+  AccountCircle,
+  AddCircleOutline,
+  Book,
+  Dashboard,
+  HowToReg,
+} from "@mui/icons-material";
 
 const Admin = () => {
   const sideOptions = [
@@ -10,6 +16,11 @@ const Admin = () => {
       name: "Dashboard",
       icon: <Dashboard />,
       link: "/admin/dashboard",
+    },
+    {
+      name: "Add New Trainer",
+      icon: <AddCircleOutline />,
+      link: "/admin/addtrainer",
     },
     {
       name: "Trainer Manager",

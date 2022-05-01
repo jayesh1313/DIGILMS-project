@@ -33,8 +33,6 @@ export default function Trainerlogin() {
             title: "success",
             text: "Trainer Login Successfully",
           });
-
-          navigate("/trainer/chat");
         } else if (res.status === 300) {
           Swal.fire({
             icon: "success",
@@ -47,6 +45,7 @@ export default function Trainerlogin() {
       .then((data) => {
         sessionStorage.setItem("trainer", JSON.stringify(data));
         console.log(data);
+        navigate("/trainer/chat");
       });
   };
 

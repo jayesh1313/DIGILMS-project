@@ -241,7 +241,7 @@ export default function Sidebar({ children, sideOptions, title, points }) {
               horizontal: "right",
             }}
             open={Boolean(trainerMenuPos)}
-            onClose={(e) => setUserMenuPos(null)}
+            onClose={(e) => setTrainerMenuPos(null)}
           >
             {trainerMenu.map(({ name, icon, link, click }) => (
               <MenuItem

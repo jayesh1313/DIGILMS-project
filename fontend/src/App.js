@@ -7,7 +7,6 @@ import Trainer from "./components/trainer";
 import Course from "./components/course";
 
 import Signup from "./components/main/signup";
-import Register from "./components/trainer/Register";
 import Trainerlogin from "./components/trainer/Trainerlogin";
 import BrowseCourse from "./components/main/Browsecourse";
 import NotFound from "./components/main/NotFound";
@@ -40,6 +39,7 @@ import Study from "./components/user/study";
 import TrainerChat from "./components/trainer/trainerChat";
 import Chat from "./components/user/chat";
 import TrainerAuthenticator from "./trainerAuthenticator";
+import AddTrainer from "./components/admin/addTrainer";
 
 function App() {
   const stripe = loadStripe("pk_test_Vmvhpm2TASsGcgF4RcyQfkF000KwucQJR1");
@@ -67,7 +67,6 @@ function App() {
             }
             path="trainer"
           >
-            <Route element={<Register />} path="Register" />
             <Route element={<BrowseTrainer />} path="BrowseTrainer" />
             <Route element={<TrainerDashboard />} path="dashboard" />
             <Route element={<Addcourse />} path="Addcourse" />
@@ -85,12 +84,14 @@ function App() {
           </Route>
           <Route
             element={
-              <Authenticator>
+              <TrainerAuthenticator>
                 <Admin />
-              </Authenticator>
+              </TrainerAuthenticator>
             }
             path="admin"
           >
+            <Route element={<Addcourse />} path="Addcourse" />
+            <Route element={<AddTrainer />} path="addtrainer" />
             <Route element={<AdminDashboard />} path="dashboard" />
             <Route element={<TrainerManager />} path="TrainerManager" />
             <Route element={<AdminLogin />} path="login" />

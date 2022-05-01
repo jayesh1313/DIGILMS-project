@@ -34,99 +34,101 @@ const EnrolledCourse = () => {
   const [menuPos, setMenuPos] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(sessionStorage.getItem("user"))
-  );
-  console.log(currentUser);
+  const [currentUser, setCurrentUser] = useState(null);
+  // console.log(currentUser);
   const navigate = useNavigate();
 
   useEffect(() => {
     // fetchData();
-  }, []);
+    setCurrentUser(JSON.parse(sessionStorage.getItem("user")));
+  }, [sessionStorage.getItem("user")]);
 
   const displayData = () => {
-    return currentUser.enrolled.map(
-      (
-        {
-          title,
-          Duration,
-          isAdmin,
-          pricing,
-          trainer,
-          description,
-          category,
-          prerequisites,
-          username,
-          _id,
-          createdAt,
-          thumbnail,
-        },
-        index
-      ) => (
-        <Accordion key={_id}>
-          <AccordionSummary expandIcon={<ExpandMoreSharp />}>
-            <Typography fontWeight={600}>{title}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Grid container spacing={10}>
-              <Grid item md={6}>
-                <h3>Course Details</h3>
-                <hr className="mb-5" />
-                <Grid container spacing={5}>
-                  <Grid item xs={4}>
-                    <img
-                      className="w-100"
-                      src={url + "/uploads/" + thumbnail}
-                      alt=""
-                    />
-                  </Grid>
-                  <Grid item xs={8}>
-                    <h4>{title}</h4>
-                    <h4>{description}</h4>
-                    in <h4>{category}</h4>
+    console.log(currentUser);
+    if (currentUser !== null) {
+      return currentUser.enrolled.map(
+        (
+          {
+            title,
+            Duration,
+            isAdmin,
+            pricing,
+            trainer,
+            description,
+            category,
+            prerequisites,
+            username,
+            _id,
+            createdAt,
+            thumbnail,
+          },
+          index
+        ) => (
+          <Accordion key={_id}>
+            <AccordionSummary expandIcon={<ExpandMoreSharp />}>
+              <Typography fontWeight={600}>{title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Grid container spacing={10}>
+                <Grid item md={6}>
+                  <h3>Course Details</h3>
+                  <hr className="mb-5" />
+                  <Grid container spacing={5}>
+                    <Grid item xs={4}>
+                      <img
+                        className="w-100"
+                        src={url + "/uploads/" + thumbnail}
+                        alt=""
+                      />
+                    </Grid>
+                    <Grid item xs={8}>
+                      <h4>{title}</h4>
+                      <h4>{description}</h4>
+                      in <h4>{category}</h4>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-              <Grid item md={6}>
-                <h3>Trainer Details</h3>
-                <hr className="mb-5" />
-                <Grid container spacing={5}>
-                  <Grid item xs={4}>
-                    {/* <img
+                <Grid item md={6}>
+                  <h3>Trainer Details</h3>
+                  <hr className="mb-5" />
+                  <Grid container spacing={5}>
+                    <Grid item xs={4}>
+                      {/* <img
                       className="w-100"
                       src={url + "/uploads/" + thumbnail}
                       alt=""
                     /> */}
-                  </Grid>
-                  <Grid item xs={8}>
-                    <h4>Name : {trainer.fullname}</h4>
-                    <h4> Qualification : {trainer.qualification}</h4>
-                    <h4> Phone : {trainer.phone}</h4>
-                    <h4> Experience : {trainer.exp}</h4>
-                    <Fab
-                      color="secondary"
-                      sx={{ mt: 3 }}
-                      variant="extended"
-                      onClick={(e) => navigate("/user/chat/" + trainer._id)}
-                    >
-                      <Chat /> &nbsp; Chat
-                    </Fab>
+                    </Grid>
+                    <Grid item xs={8}>
+                      <h4>Name : {trainer.fullname}</h4>
+                      <h4> Qualification : {trainer.qualification}</h4>
+                      <h4> Phone : {trainer.phone}</h4>
+                      <h4> Experience : {trainer.exp}</h4>
+                      <Fab
+                        color="secondary"
+                        sx={{ mt: 3 }}
+                        variant="extended"
+                        onClick={(e) => navigate("/user/chat/" + trainer._id)}
+                      >
+                        <Chat /> &nbsp; Chat
+                      </Fab>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
-            </Grid>
 
-            <Fab
-              color="primary"
-              sx={{ mt: 3 }}
-              onClick={(e) => navigate("/user/study/" + _id)}
-            >
-              <ViewAgenda />
-            </Fab>
-          </AccordionDetails>
-        </Accordion>
-      )
-    );
+              <Fab
+                color="primary"
+                sx={{ mt: 3 }}
+                onClick={(e) => navigate("/user/study/" + _id)}
+              >
+                <ViewAgenda />
+              </Fab>
+            </AccordionDetails>
+          </Accordion>
+        )
+      );
+    }
   };
 
   return (

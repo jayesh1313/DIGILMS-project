@@ -13,6 +13,7 @@ const Study = () => {
   const [course, setCourse] = useState({});
   const [loading, setLoading] = useState(true);
   const [currentLecture, setCurrentLecture] = useState({});
+  const [pointsAdded, setPointsAdded] = useState(false);
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
@@ -79,19 +80,27 @@ const Study = () => {
   };
 
   const capturePlay = (e) => {
-    console.log("hehe");
-    if (e.target.duration / e.target.currentTime > 0.8) {
-      fetch(url + "/user/update/" + currentUser._id, {
-        method: "PUT",
-        body: JSON.stringify({ points: currentUser.points + 50 }),
-      }).then((res) => {
-        if (res.status === 200) {
-          console.log("points Added");
-          res.json().then((data) => {
-            sessionStorage.setItem("user", JSON.stringify(data));
-          });
-        }
-      });
+    // console.log("hehe");
+    // console.log(e.target.currentTime / e.target.duration);
+    if (!pointsAdded) {
+      if (e.target.currentTime / e.target.duration > 0.8) {
+        fetch(url + "/user/update/" + currentUser._id, {
+          method: "PUT",
+          body: JSON.stringify({ points: currentUser.points + 50 }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }).then((res) => {
+          if (res.status === 200) {
+            console.log("points Added");
+            setPointsAdded(true);
+            res.json().then((data) => {
+              sessionStorage.setItem("user", JSON.stringify(data));
+              setCurrentUser(data);
+            });
+          }
+        });
+      }
     }
   };
 

@@ -55,7 +55,7 @@ router.put("/update/:id", (req, res) => {
   Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .populate("enrolled")
     .then((data) => {
-      console.log("user data saved!!");
+      console.log(data);
       res.status(200).json(data);
     })
     .catch((err) => {

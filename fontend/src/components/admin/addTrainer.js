@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-export default function Register() {
+export default function AddTrainer() {
   const url = app_config.api_url;
 
   const trainerForm = {
@@ -42,7 +42,7 @@ export default function Register() {
   return (
     <div>
       <div class="login-box1">
-        <h2>Register</h2>
+        <h2>Add New Trainer</h2>
 
         <Formik initialValues={trainerForm} onSubmit={submitTrainer}>
           {({ values, handleChange, handleSubmit }) => (

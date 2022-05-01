@@ -34,8 +34,8 @@ export default function Login() {
         res.json().then((data) => {
           sessionStorage.setItem("user", JSON.stringify(data));
           console.log(data);
+          navigate("/user/EnrolledCourse");
         });
-        navigate("/user/EnrolledCourse");
       } else if (res.status === 300) {
         Swal.fire({
           icon: "error",
