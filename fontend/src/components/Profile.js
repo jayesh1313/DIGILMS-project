@@ -1,58 +1,119 @@
 import {
-    Box,
-    Card,
-    CardContent,
-    Container,
-    Grid,
-    Paper,
-    TextField,
-    Typography,
-  } from "@mui/material";
-  import React from "react";
-  import app_config from "../config";
-  
-  const Profile = () => {
-    const url = app_config.api_url;
-  
-    return (
-      <Container>
-        <Card>
-          <CardContent>
-            <Box component="div" sx={{ height: 200, display: "flex" }}>
-              <img src={url + "/images/ada.jpg"} alt="Ada" />
-              <Typography variant="h3"></Typography>
-            </Box>
-  
-            <form className="mt-5">
-              <Grid container spacing={10} className="mt-4 w-100">
-                <Grid item md={6} xs={12}>
-                  <TextField label="Name" variant="outlined" />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                  <TextField label="Name" variant="outlined" />
-                </Grid>
-              </Grid>
-              <Grid container spacing={10} className="mt-4 w-100">
-                <Grid item md={6} xs={12}>
-                  <TextField label="Name" variant="outlined" />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                  <TextField label="Name" variant="outlined" />
-                </Grid>
-              </Grid>
-              <Grid container spacing={10} className="mt-4 w-100">
-                <Grid item md={6} xs={12}>
-                  <TextField label="Name" variant="outlined" />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                  <TextField label="Name" variant="outlined" />
-                </Grid>
-              </Grid>
-            </form>
-          </CardContent>
-        </Card>
-      </Container>
-    );
+  Button,
+  Card,
+  CardContent,
+  CircularProgress,
+  makeStyles,
+  TextField,
+} from "@material-ui/core";
+import clsx from "clsx";
+import { Formik } from "formik";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import app_config from "../config";
+import cssClasses from "./cssClasses";
+
+const Profile = (props) => {
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [updateForm, setUpdateForm] = useState({});
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
+  const url = app_config.api_url + "/";
+
+  useEffect(() => {
+    fetch(url + "/user/getbyid/" + id)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUpdateForm(data);
+      });
+  }, []);
+
+  const onFormSubmit = (value, { setSubmitting }) => {
+    fetch(url + "/user/update/" + currentUser._id, {
+      method: "PUT",
+      body: JSON.stringify(value),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200)
+        Swal.fire({
+          icon: "success",
+          title: "Welldone!",
+          text: "You have successfully Updated",
+        });
+    });
   };
-  
-  export default Profile;
+
+  return (
+    <div className="col-md-10 mx-auto">
+      <Card className="mt-5">
+        <CardContent>
+          <div className="row">
+            <h3 className="text-center">Manage Profile</h3>
+            <div className="col-md-4">
+              <img src={url + currentUser.avatar} className="img-fluid" />
+            </div>
+            <div className="col-md-8">
+              <Formik
+                enableReinitialize={true}
+                initialValues={currentUser}
+                onSubmit={onFormSubmit}
+              >
+                {({ values, handleChange, handleSubmit, isSubmitting }) => (
+                  <form onSubmit={handleSubmit}>
+                    <TextField
+                      label="Full Name"
+                      variant="filled"
+                      name="fullname"
+                      className="mt-5"
+                      onChange={handleChange}
+                      value={values.fullname}
+                    />
+                    <TextField
+                      label="Email"
+                      variant="filled"
+                      name="email"
+                      className="mt-5"
+                      onChange={handleChange}
+                      value={values.email}
+                    />
+                    <TextField
+                      label="Age"
+                      variant="filled"
+                      name="age"
+                      className="mt-5"
+                      onChange={handleChange}
+                      value={values.age}
+                    />
+                    <TextField
+                      type="password"
+                      label="Password"
+                      name="password"
+                      variant="filled"
+                      className="mt-5"
+                      onChange={handleChange}
+                      value={values.password}
+                    />
+
+                    <div className="text-center">
+                      <button className="btn btn-primary mt-5 w-100">
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </Formik>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default Profile;
