@@ -5,14 +5,13 @@ import {
   CircularProgress,
   makeStyles,
   TextField,
-} from "@material-ui/core";
+} from "@mui/material";
 import clsx from "clsx";
 import { Formik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import app_config from "../config";
-import cssClasses from "./cssClasses";
 
 const Profile = (props) => {
   const { id } = useParams();
