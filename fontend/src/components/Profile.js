@@ -55,7 +55,10 @@ const Profile = (props) => {
           <div className="row">
             <h3 className="text-center">Manage Profile</h3>
             <div className="col-md-4">
-              <img src={url + currentUser.avatar} className="img-fluid" />
+              <img
+                src="https://ritecaremedicalofficepc.com/wp-content/uploads/2019/09/img_avatar.png"
+                className="img-fluid"
+              />
             </div>
             <div className="col-md-8">
               <Formik
@@ -69,7 +72,7 @@ const Profile = (props) => {
                       label="Full Name"
                       variant="filled"
                       name="fullname"
-                      className="mt-5"
+                      className="mt-5 w-100"
                       onChange={handleChange}
                       value={values.fullname}
                     />
@@ -77,7 +80,7 @@ const Profile = (props) => {
                       label="Email"
                       variant="filled"
                       name="email"
-                      className="mt-5"
+                      className="mt-5 w-100"
                       onChange={handleChange}
                       value={values.email}
                     />
@@ -85,7 +88,7 @@ const Profile = (props) => {
                       label="Age"
                       variant="filled"
                       name="age"
-                      className="mt-5"
+                      className="mt-5 w-100"
                       onChange={handleChange}
                       value={values.age}
                     />
